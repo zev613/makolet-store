@@ -30,5 +30,6 @@ while user_quit == False:
 		user_quit = True
 		sys.exit()
 #this is a test comment
+#this is a new test comment
 json_data = json.load(open('database.json'))
 users.update(json_data)
