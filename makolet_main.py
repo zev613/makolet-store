@@ -4,8 +4,10 @@ import sys
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-user_logged_in = False
+users = {}
 
+user_logged_in = False
+current_user = {}
 user_quit = False
 while user_quit == False:
 	print("Welcome to Makolet®, the Text-Based Store™\n")
@@ -29,7 +31,36 @@ while user_quit == False:
 		#Store User back into database
 		user_quit = True
 		sys.exit()
-#this is a test comment
-#this is a new test comment
+
 json_data = json.load(open('database.json'))
 users.update(json_data)
+
+class User():
+	def __init__(self, first_name, last_name, email, password):
+		self.first_name = first_name
+		self.last_name = last_name
+		self.email = email
+		self.password = password
+		#self.address = address
+		#self.purchase_history = purchase_history
+	
+	def get_first_name(self):
+		return self.first_name
+	
+	def get_last_name(self):
+		return self.last_name
+	
+	def get_email(self):
+		return self.email
+	
+	def get_password(self):
+		return self.password
+	
+zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com', "Zev'sPassword123")
+
+print('zseltzer.get_first_name:', zseltzer.get_first_name())
+	
+	
+
+def user_login():
+	pass
