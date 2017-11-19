@@ -28,13 +28,15 @@ def password_recovery(user_email, user_password): #email is same as user_name
     server.quit()
 
 def new_password(email):
+    min_characters = 8
     legal_password = False
     while legal_password == False:
-        print("Please enter a new password for your account.\n)
+        print("You will now set a password for your account.\n")
         print("It must be at least " + str(min_characters) + " characters.\n")
         print("It must include an uppercase letter, a lowercase letter and a number/symbol")
+        new_password = input("Please type your password here.")
         #Have them re-enter the password.
-        re_new_password = input("Please re-enter your password:\n")
+        re_new_password = input("Please re-type your password a second time:\n")
         #The following sequence tests the password if its less than the min # of characters needed, and if it contains the required types of characters
         if new_password == re_new_password: #If the password strings are equal
             if len(re_new_password) >= min_characters:
@@ -42,12 +44,12 @@ def new_password(email):
                 for char in re_new_password:
                     if char not in lowercase_letters:
                         print("You did not include a lowercase letter.\n")
-                            continue
+                        continue
                     elif char not in uppercase_letters:
                         print("You did not include an uppercase letter.\n")
-                            continue
+                        continue
                     elif char not in num_sym:
-                    print("You did not include a number or a symbol.\n")
+                        print("You did not include a number or a symbol.\n")
                         continue
                     else:
                         print("<DEBUG> Your password meets character requirements.")
@@ -61,6 +63,6 @@ def new_password(email):
         #If all requirements are met:
         print("Your passwords are the same, and meet all of the requirements. Congratulations.\n")
         #Passwords are the same, and meet all of the parameters as set when calling the function. Therefore the loop breaks and it returns the legal password value.
-        self.password = re_new_password
         legal_password = True
+        return re_new_password
         #Legal password has been entered twice, Loop ends, program continues.
