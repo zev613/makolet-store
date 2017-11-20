@@ -4,7 +4,7 @@
 
 import json
 import sys
-from password import *
+import password
 #import smtplib
 #from email.mime.multipart import MIMEMultipart
 #from email.mime.text import MIMEText
@@ -29,6 +29,8 @@ while user_quit == False:
 		print("Go to Login Menu") #TODO: create login function, and call it here.
 		#THE LOOP WILL CONTINUE GOING UNTIL SOMETHING STOPS IT, SUCH AS INPUT. MAY NEED TO CHANGE THE LOGIC FLOW
 		#make login function, called from here.
+		#test = input('Hello')
+		
 	elif choice == 'create account' or 'create user':
 		print("Go to Create Account Menu")
 		#make new account function, called from here.
@@ -43,7 +45,7 @@ users.update(json_data) #update empty user dictionary from the json file
 
 class User():
 	"""Makes a new user with the specified attributes, then have user create a new password"""
-	def __init__(self, first_name, last_name, email):
+	def __init__(self, first_name, last_name, email, address):
 		#TODO: I had to remove the password parameter for the constructor, because
 		#we have them set their passwords below. Maybe we should make a subclass that refers to a new User, and add
 		#And then make this a separate class?
@@ -60,7 +62,7 @@ class User():
 		#self.purchase_history = purchase_history
 
 		#The folllowing is the code to create a new password
-		self.password = new_password(self.email) #calls new_password, which returns a valid password entered by user
+		self.password = password.new_password(self.email) #calls new_password, which returns a valid password entered by user
 
 	def get_first_name(self):
 		return self.first_name
@@ -74,10 +76,10 @@ class User():
 	def get_password(self):
 		return self.password
 
-zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com') #create a new user, Zev
+zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com' ) #create a new user, Zev
 want_recovery = input("Would you like to recover your password? Type yes or no").lower()
 if want_recovery in ['yes', 'y']:
-	password_recovery(zseltzer.get_email()) #call password_recovery function in password.py
+	password.password_recovery(zseltzer.get_email()) #call password_recovery function in password.py
 
 #print('zseltzer.get_first_name:', zseltzer.get_first_name()) #test User object initiation
 

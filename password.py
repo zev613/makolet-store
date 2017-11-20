@@ -17,7 +17,7 @@ def password_recovery(user_email, user_password): #email is same as user_name
     msg['To'] = toaddr
     msg['Subject'] = "Password for your Makolet® Account" #Subject
 
-    body = "You requested a password recovery for your Makolet® Account.\n\nThe password for your Makolet® account is:\n\n\t\t" + user_password + "\n\nYou can now use this to login to Makolet®, the Text-Based Store™"
+    body = "You requested a password recovery for your Makolet® Account.\n\nThe password for your Makolet® account is:\n\n\t\t" + user_password + "\n\nYou can now use this to login to Makolet®, the Text-Based Store™ "
     msg.attach(MIMEText(body, 'plain'))
 
     server = smtplib.SMTP('smtp.gmail.com', 587) #Gmail SMTP server info
