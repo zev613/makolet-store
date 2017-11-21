@@ -1,0 +1,33 @@
+{
+   "email": "zseltzer@fandm.edu",
+   "first_name": "beau",
+   "last_name": "Seltzer",
+   "password": "This_is_my_password",
+   "address": ["315 Prospect St.", "", "Northampton, MA 01060"],
+   "account_info": {
+        "balance": 100.00,
+        "purchase_history": {
+            "Harry Potter and the Sorcerer's Stone": {
+                "other_info": "Suzanne Collins",
+                "department": "Books",
+                "quantity_bought": 2,
+                "cost": 6.60,
+                "date_purchased": "November 20th, 2017"
+            },
+            "Dell Inspiron 13 5000 2-in-1": {
+               "other_info": "Dell Computers Inc.",
+               "department": "Computers",
+               "quantity_bought": 1,
+               "cost": 649.99,
+               "date_purchased": "July 4th, 2017"
+            },
+            "Wonder Woman Standard Edition Blu-ray": {
+               "other_info": "Warner Brothers",
+               "department": "Movies",
+               "quantity_bought": 1,
+               "cost": 19.97,
+               "date_purchased": "August 20th, 2017"
+            }
+        }
+   }
+}

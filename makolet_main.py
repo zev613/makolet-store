@@ -13,6 +13,12 @@ users = {} #probably remove
 
 user_logged_in = False
 current_user = {}
+
+json_data = json.load(open('users.json')) #load user database from json file
+users.update(json_data) #update empty user dictionary from the json file
+
+print(users)
+
 user_quit = False #flag var for main while loop
 while user_quit == False:
 	print("Welcome to Makolet®, the Text-Based Store™\n")
@@ -39,9 +45,6 @@ while user_quit == False:
 		#Store User back into database
 		user_quit = True #set flag var for main loop
 		sys.exit() #quit program
-
-json_data = json.load(open('database.json')) #load user database from json file
-users.update(json_data) #update empty user dictionary from the json file
 
 class User():
 	"""Makes a new user with the specified attributes, then have user create a new password"""
@@ -76,7 +79,7 @@ class User():
 	def get_password(self):
 		return self.password
 
-zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com' ) #create a new user, Zev
+zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com') #create a new user, Zev
 want_recovery = input("Would you like to recover your password? Type yes or no").lower()
 if want_recovery in ['yes', 'y']:
 	password.password_recovery(zseltzer.get_email()) #call password_recovery function in password.py
