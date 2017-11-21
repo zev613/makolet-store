@@ -17,7 +17,8 @@ current_user = {}
 json_data = json.load(open('users.json')) #load user database from json file
 users.update(json_data) #update empty user dictionary from the json file
 
-print(users)
+#print(users)
+#print('Welcome,', users['zseltzer@fandm.edu']['first_name'], users['zseltzer@fandm.edu']['last_name'])
 
 user_quit = False #flag var for main while loop
 while user_quit == False:
@@ -39,7 +40,7 @@ while user_quit == False:
 		
 	elif choice == 'create account' or 'create user':
 		print("Go to Create Account Menu")
-		#make new account function, called from here.
+		#TODO make new account function, called from here.
 	elif choice == 'quit' or choice == 'exit': #if user wants to quit
 		print("Sorry to see you leave. Thank you for shopping with Makolet®, the Text-Based Store™\nGoodbye")
 		#Store User back into database
@@ -49,10 +50,11 @@ while user_quit == False:
 class User():
 	"""Makes a new user with the specified attributes, then have user create a new password"""
 	def __init__(self, first_name, last_name, email, address):
-		#TODO: I had to remove the password parameter for the constructor, because
-		#we have them set their passwords below. Maybe we should make a subclass that refers to a new User, and add
-		#And then make this a separate class?
-		#Below are reference strings to check if password has correct requirements
+		"""I had to remove the password parameter for the constructor because
+		we have them set their passwords below. Maybe we should make a subclass that refers to a new User, and add
+		And then make this a separate class?"""
+		
+		#Reference Strings to compare for password requirements
 		self.first_name = first_name
 		self.last_name = last_name
 		valid_email = False #flag var to check for valid email address
