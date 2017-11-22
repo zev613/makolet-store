@@ -54,41 +54,85 @@
       "Electronics": {
         "Computers": {
           "Laptops": {
+            "Apple": {
 
+            },
+            "Dell": {
+
+            },
+            "HP": {
+
+            },
+            "Lenovo": {
+
+            }
           },
           "Desktops": {
+            "Apple": {
 
+            },
+            "Dell": {
+
+            },
+            "HP": {
+
+            },
+            "Lenovo": {
+
+            }
           },
           "Computer Accessories": {
 
           }
         },
         "Phones": {
-          "iPhones": {
-
-          },
-          "Android": {
-            "Samsung": {
+          "Apple": {
+            "iPhone 8": {
 
             },
-            "LG": {
-
-            },
-            "Xaomi": {
-
-            },
-            "Google": {
-
-            },
-            "Motorola": {
-
-            },
-            "HTC": {
-
-            },
-            "OnePlus": {
+            "iPhone 7S": {
 
             }
+          },
+          "Samsung": {
+
+          },
+          "LG": {
+
+          },
+          "Motorola": {
+            "Moto Z Droid Edition - 32GB Verizon Wireless": {
+              "price": 263.95,
+              "quantity": 46,
+              "rating": 3.9,
+              "other_info": {
+                "OS": "Android",
+                "screen_size": "5.5' Inches",
+                "storage": "32GB",
+                "battery": "8 Hours",
+                "other_features": ["Water repellent", "microSD card support"]
+              }
+            }
+          },
+          "HTC": {
+
+          },
+          "Google": {
+            "Pixel XL - 128GB 5.5' Verizon Wireless": {
+              "price": 668.47,
+              "quantity": 23,
+              "rating": 3.3,
+              "other_info": {
+                "OS": "Android",
+                "screen_size": "5.5 inches",
+                "storage": "128GB",
+                "battery": "7 Hours",
+                "other_features": ["USB Type-C"]
+              }
+            }
+          },
+          "OnePlus": {
+
           }
         },
         "Video Games": {
