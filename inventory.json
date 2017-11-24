@@ -1,284 +1,281 @@
 {
-   "departments": {
-      "Books": {
-        "Children's Books": {
-          "Harry Potter and the Sorcerer's Stone": {
-            "price": 7.49,
-            "quantity": 52,
-            "rating": 4.8,
-            "other_info": {
-              "author": "J K Rowling",
-              "publisher": "Scholastic Inc.",
-              "pages": 309,
-              "release_date": "September 8, 1999"
-            }
-          },
-          "The Hunger Games (Book 1)": {
-            "price": 7.47,
-            "quantity": 31,
-            "rating": 4.6,
-            "other_info": {
-              "author": "Suzanne Collins",
-              "publisher": "Scholastic Inc.",
-              "pages": 384,
-              "release_date": "July 3, 2010"
-            }
-          }
-        },
-         "NonFiction Books": {
-           "Leonardo da Vinci": {
-             "price": 16.86,
-             "quantity": 105,
-             "rating": 4.3,
-             "other_info": {
-               "author": "Walter Isaacson",
-               "publisher": "Simon & Schuster",
-               "pages": 624,
-               "release_date": "October 17, 2017"
-             }
-           },
-           "Life 3.0: Being Human in the Age of Artificial Intelligence": {
-             "price": 18.30,
-             "quantity": 4,
-             "rating": 4.4,
-             "other_info": {
-               "author": "Max Tegmark",
-               "publisher": "Knopf",
-               "pages": 384,
-               "release_date": "August 29, 2017"
-             }
-           }
-
-         }
-      },
-      "Electronics": {
-        "Computers": {
-          "Laptops": {
-            "Apple": {
-
-            },
-            "Dell": {
-
-            },
-            "HP": {
-
-            },
-            "Lenovo": {
-
-            }
-          },
-          "Desktops": {
-            "Apple": {
-
-            },
-            "Dell": {
-
-            },
-            "HP": {
-
-            },
-            "Lenovo": {
-
-            }
-          },
-          "Computer Accessories": {
-
-          }
-        },
-        "Phones": {
-          "Apple": {
-            "iPhone 8": {
-
-            },
-            "iPhone 7S": {
-
-            }
-          },
-          "Samsung": {
-
-          },
-          "LG": {
-
-          },
-          "Motorola": {
-            "Moto Z Droid Edition - 32GB Verizon Wireless": {
-              "price": 263.95,
-              "quantity": 46,
-              "rating": 3.9,
-              "other_info": {
-                "OS": "Android",
-                "screen_size": "5.5' Inches",
-                "storage": "32GB",
-                "battery": "8 Hours",
-                "other_features": ["Water repellent", "microSD card support"]
-              }
-            }
-          },
-          "HTC": {
-
-          },
-          "Google": {
-            "Pixel XL - 128GB 5.5' Verizon Wireless": {
-              "price": 668.47,
-              "quantity": 23,
-              "rating": 3.3,
-              "other_info": {
-                "OS": "Android",
-                "screen_size": "5.5 inches",
-                "storage": "128GB",
-                "battery": "7 Hours",
-                "other_features": ["USB Type-C"]
-              }
-            }
-          },
-          "OnePlus": {
-
-          }
-        },
-        "Video Games": {
-          "XBOX": {
-
-          },
-          "Playstation": {
-
-          },
-          "Nintendo Switch": {
-
-          },
-          "PC Gaming": {
-
-          }
-        },
-        "Networking": {
-
-        },
-        "TV and Video": {
-
-        },
-        "Audio": {
-
-        },
-        "Smart Home": {
-
+  "Books": {
+    "Children's Books": {
+      "Harry Potter and the Sorcerer's Stone": {
+        "price": 7.49,
+        "quantity": 52,
+        "rating": 4.8,
+        "other_info": {
+          "author": "J K Rowling",
+          "publisher": "Scholastic Inc.",
+          "pages": 309,
+          "release_date": "September 8, 1999"
         }
       },
-      "Tools and Home-Improvement": {
-
-      },
-      "Clothing": {
-
-      },
-      "Food": {
-
-      },
-      "Toys and Games": {
-
-      },
-      "Movies and Music": {
-        "Movies": {
-          "Wonder Woman Blu-ray": {
-            "price": 19.97,
-            "quantity": 20,
-            "rating": 4.3,
-            "other_info": {
-              "main_actors": ["Gal Gadot", "Chris Pine"],
-              "director": "Patty Jenkins",
-              "studio": "Warner Brothers",
-              "runtime": "133 minutes",
-              "release_date": "September 19, 2017"
-            }
-          }
-        },
-        "Music": {
-          "Mothership (Remastered) - Led Zeppelin": {
-            "price": 14.49,
-            "quantity": 35,
-            "rating": 4.8,
-            "other_info": {
-              "artist": "Led Zeppelin",
-              "label": "Rhino Atlantic",
-              "total_length": "02:16:05",
-              "release_date": "Novemember 6, 2015"
-            }
-          },
-          "Back In Black - AC/DC": {
-            "price": 9.00,
-            "quantity": 14,
-            "rating": 4.8,
-            "other_info": {
-              "artist": "AC/DC",
-              "label": "Epic",
-              "total_length": "42:04",
-              "release_date": "July 25, 1980"
-            }
-          },
-          "The Dark Side of the Moon - Pink Floyd": {
-            "price": 10.75,
-            "quantity": 65,
-            "rating": 4.6,
-            "other_info": {
-              "artist": "Pink Floyd",
-              "label": "Pink Floyd Records",
-              "total_length": "42:48",
-              "release_date": "January 1, 2016"
-            }
-          },
-          "reputation - Taylor Swift": {
-            "price": 12.97,
-            "quantity": 156,
-            "rating": 4.1,
-            "other_info": {
-              "artist": "Taylor Swift",
-              "label": "Big Machine Records",
-              "total_length": "55:38",
-              "release_date": "November 17, 2017"
-            }
-          },
-          "DAMN. - Kendrick Lamar": {
-            "price": 8.00,
-            "quantity": 86,
-            "rating": 4.7,
-            "other_info": {
-              "artist": "Kendrick Lamar",
-              "label": "Aftermath",
-              "total_length": "55:01",
-              "release_date": "April 14, 2017"
-            }
-          },
-          "44:44 - Jay-Z": {
-            "price": 11.68,
-            "quantity": 97,
-            "rating": 4.3,
-            "other_info": {
-              "artist": "Jay-Z",
-              "label": "Roc Nation",
-              "total_length": "36:11",
-              "release_date": "July 7, 2017"
-            }
-          },
-          "Hamilton Original Broadway Cast Recording": {
-            "price": 18.99,
-            "quantity": 101,
-            "rating": 4.8,
-            "other_info": {
-              "artist": "Various Artists",
-              "label": "Atlantic",
-              "total_length": "142:13",
-              "release_date": "October 16, 2015"
-            }
-          },
-          "The Platinum Collection: Greatest Hits I, II & III - Queen": {
-            "price": 89.27,
-            "quantity": 14,
-            "rating": 4.7,
-            "other_info": {
-              "artist": "Queen",
-              "label": "Hollywood Records",
-              "total_length": "208:12",
-              "release_date": "September 24, 2002"
-            }
-          }
+      "The Hunger Games (Book 1)": {
+        "price": 7.47,
+        "quantity": 31,
+        "rating": 4.6,
+        "other_info": {
+          "author": "Suzanne Collins",
+          "publisher": "Scholastic Inc.",
+          "pages": 384,
+          "release_date": "July 3, 2010"
         }
       }
-   }
+    },
+    "NonFiction Books": {
+      "Leonardo da Vinci": {
+        "price": 16.86,
+        "quantity": 105,
+        "rating": 4.3,
+        "other_info": {
+          "author": "Walter Isaacson",
+          "publisher": "Simon & Schuster",
+          "pages": 624,
+          "release_date": "October 17, 2017"
+        }
+      },
+      "Life 3.0: Being Human in the Age of Artificial Intelligence": {
+        "price": 18.30,
+        "quantity": 4,
+        "rating": 4.4,
+        "other_info": {
+          "author": "Max Tegmark",
+          "publisher": "Knopf",
+          "pages": 384,
+          "release_date": "August 29, 2017"
+        }
+      }
+    }
+  },
+  "Electronics": {
+    "Computers": {
+      "Laptops": {
+        "Apple": {
+
+        },
+        "Dell": {
+
+        },
+        "HP": {
+
+        },
+        "Lenovo": {
+
+        }
+      },
+      "Desktops": {
+        "Apple": {
+
+        },
+        "Dell": {
+
+        },
+        "HP": {
+
+        },
+        "Lenovo": {
+
+        }
+      },
+      "Computer Accessories": {
+
+      }
+    },
+    "Phones": {
+      "Apple": {
+        "iPhone 8": {
+
+        },
+        "iPhone 7S": {
+
+        }
+      },
+      "Samsung": {
+
+      },
+      "LG": {
+
+      },
+      "Motorola": {
+        "Moto Z Droid Edition - 32GB Verizon Wireless": {
+          "price": 263.95,
+          "quantity": 46,
+          "rating": 3.9,
+          "other_info": {
+            "OS": "Android",
+            "screen_size": "5.5' Inches",
+            "storage": "32GB",
+            "battery": "8 Hours",
+            "other_features": ["Water repellent", "microSD card support"]
+          }
+        }
+      },
+      "HTC": {
+
+      },
+      "Google": {
+        "Pixel XL - 128GB 5.5' Verizon Wireless": {
+          "price": 668.47,
+          "quantity": 23,
+          "rating": 3.3,
+          "other_info": {
+            "OS": "Android",
+            "screen_size": "5.5 inches",
+            "storage": "128GB",
+            "battery": "7 Hours",
+            "other_features": ["USB Type-C"]
+          }
+        }
+      },
+      "OnePlus": {
+
+      }
+    },
+    "Video Games": {
+      "XBOX": {
+
+      },
+      "Playstation": {
+
+      },
+      "Nintendo Switch": {
+
+      },
+      "PC Gaming": {
+
+      }
+    },
+    "Networking": {
+
+    },
+    "TV and Video": {
+
+    },
+    "Audio": {
+
+    },
+    "Smart Home": {
+
+    }
+  },
+  "Tools and Home-Improvement": {
+
+  },
+  "Clothing": {
+
+  },
+  "Food": {
+
+  },
+  "Toys and Games": {
+
+  },
+  "Movies and Music": {
+    "Movies": {
+      "Wonder Woman Blu-ray": {
+        "price": 19.97,
+        "quantity": 20,
+        "rating": 4.3,
+        "other_info": {
+          "main_actors": ["Gal Gadot", "Chris Pine"],
+          "director": "Patty Jenkins",
+          "studio": "Warner Brothers",
+          "runtime": "133 minutes",
+          "release_date": "September 19, 2017"
+        }
+      }
+    },
+    "Music": {
+      "Mothership (Remastered) - Led Zeppelin": {
+        "price": 14.49,
+        "quantity": 35,
+        "rating": 4.8,
+        "other_info": {
+          "artist": "Led Zeppelin",
+          "label": "Rhino Atlantic",
+          "total_length": "02:16:05",
+          "release_date": "Novemember 6, 2015"
+        }
+      },
+      "Back In Black - AC/DC": {
+        "price": 9.00,
+        "quantity": 14,
+        "rating": 4.8,
+        "other_info": {
+          "artist": "AC/DC",
+          "label": "Epic",
+          "total_length": "42:04",
+          "release_date": "July 25, 1980"
+        }
+      },
+      "The Dark Side of the Moon - Pink Floyd": {
+        "price": 10.75,
+        "quantity": 65,
+        "rating": 4.6,
+        "other_info": {
+          "artist": "Pink Floyd",
+          "label": "Pink Floyd Records",
+          "total_length": "42:48",
+          "release_date": "January 1, 2016"
+        }
+      },
+      "reputation - Taylor Swift": {
+        "price": 12.97,
+        "quantity": 156,
+        "rating": 4.1,
+        "other_info": {
+          "artist": "Taylor Swift",
+          "label": "Big Machine Records",
+          "total_length": "55:38",
+          "release_date": "November 17, 2017"
+        }
+      },
+      "DAMN. - Kendrick Lamar": {
+        "price": 8.00,
+        "quantity": 86,
+        "rating": 4.7,
+        "other_info": {
+          "artist": "Kendrick Lamar",
+          "label": "Aftermath",
+          "total_length": "55:01",
+          "release_date": "April 14, 2017"
+        }
+      },
+      "44:44 - Jay-Z": {
+        "price": 11.68,
+        "quantity": 97,
+        "rating": 4.3,
+        "other_info": {
+          "artist": "Jay-Z",
+          "label": "Roc Nation",
+          "total_length": "36:11",
+          "release_date": "July 7, 2017"
+        }
+      },
+      "Hamilton Original Broadway Cast Recording": {
+        "price": 18.99,
+        "quantity": 101,
+        "rating": 4.8,
+        "other_info": {
+          "artist": "Various Artists",
+          "label": "Atlantic",
+          "total_length": "142:13",
+          "release_date": "October 16, 2015"
+        }
+      },
+      "The Platinum Collection: Greatest Hits I, II & III - Queen": {
+        "price": 89.27,
+        "quantity": 14,
+        "rating": 4.7,
+        "other_info": {
+          "artist": "Queen",
+          "label": "Hollywood Records",
+          "total_length": "208:12",
+          "release_date": "September 24, 2002"
+        }
+      }
+    }
+  }
 }
