@@ -52,53 +52,27 @@
   "Electronics": {
     "Computers": {
       "Laptops": {
-        "Apple": {
-
+        "Apple 13' Macbook Pro - Newest Version": {
         },
-        "Dell": {
-
+        "Dell XPS 15": {
         },
-        "HP": {
-
-        },
-        "Lenovo": {
-
+        "Dell XPS 13": {
         }
       },
       "Desktops": {
-        "Apple": {
-
-        },
-        "Dell": {
-
-        },
-        "HP": {
-
-        },
-        "Lenovo": {
-
-        }
-      },
-      "Computer Accessories": {
-
       }
     },
+    "Computer Accessories": {
+
+    },
     "Phones": {
-      "Apple": {
         "iPhone 8": {
 
         },
         "iPhone 7S": {
-
         }
-      },
-      "Samsung": {
 
       },
-      "LG": {
-
-      },
-      "Motorola": {
         "Moto Z Droid Edition - 32GB Verizon Wireless": {
           "price": 263.95,
           "quantity": 46,
@@ -110,12 +84,11 @@
             "battery": "8 Hours",
             "other_features": ["Water repellent", "microSD card support"]
           }
-        }
-      },
-      "HTC": {
+        },
+
+      "HTC One M10": {
 
       },
-      "Google": {
         "Pixel XL - 128GB 5.5' Verizon Wireless": {
           "price": 668.47,
           "quantity": 23,
@@ -127,25 +100,8 @@
             "battery": "7 Hours",
             "other_features": ["USB Type-C"]
           }
-        }
-      },
-      "OnePlus": {
-
-      }
-    },
+        },
     "Video Games": {
-      "XBOX": {
-
-      },
-      "Playstation": {
-
-      },
-      "Nintendo Switch": {
-
-      },
-      "PC Gaming": {
-
-      }
     },
     "Networking": {
 
@@ -159,18 +115,6 @@
     "Smart Home": {
 
     }
-  },
-  "Tools and Home-Improvement": {
-
-  },
-  "Clothing": {
-
-  },
-  "Food": {
-
-  },
-  "Toys and Games": {
-
   },
   "Movies and Music": {
     "Movies": {
