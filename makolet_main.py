@@ -9,7 +9,9 @@ import password
 #from email.mime.multipart import MIMEMultipart
 #from email.mime.text import MIMEText
 
-users = {} #probably remove
+users = {}
+
+inventory = {} #Dictionary that represents the entire store's Inventory
 
 user_logged_in = False
 current_user = {}
@@ -17,9 +19,33 @@ current_user = {}
 json_data = json.load(open('users.json')) #load user database from json file
 users.update(json_data) #update empty user dictionary from the json file
 
+inventory_data = json.load(open('inventory.json')) # load inventory json file
+inventory.update(inventory_data)
+
+
+
+print(inventory, "\n")
+print("There are:", len(inventory), "Categories in the Inventory.")
+for category in inventory.keys():
+	print("<CATEGORY>", category, "\n")
+	for item in inventory[category].keys():
+		print("<ITEM NAME>", item, "\n")
+		if "subcategory" in inventory[category][item]:
+			category = inventory[category][item]["subcategory"].split("/")
+			for sub in category:
+				print("\tSub-Category", sub)
+		print("PRICE:", "\t\t", "$", inventory[category][item]["price"])
+		print("RATING:", "\t\t", inventory[category][item]["rating"], "/5 stars\n")
+		print("<OTHER_INFO>:")
+		for info in inventory[category][item]["other_info"].keys():
+			print("<KEY>:", info, "<VALUE>:", inventory[category][item]["other_info"][info])
+		
+		
+
+
 #print(users)
 #print('Welcome,', users['zseltzer@fandm.edu']['first_name'], users['zseltzer@fandm.edu']['last_name'])
-
+"""
 user_quit = False #flag var for main while loop
 while user_quit == False:
 	print("Welcome to Makolet®, the Text-Based Store™\n")
@@ -46,13 +72,14 @@ while user_quit == False:
 		#Store User back into database
 		user_quit = True #set flag var for main loop
 		sys.exit() #quit program
-
+"""
+"""
 class User():
-	"""Makes a new user with the specified attributes, then have user create a new password"""
+	'''Makes a new user with the specified attributes, then have user create a new password'''
 	def __init__(self, first_name, last_name, email, address):
-		"""I had to remove the password parameter for the constructor because
+		'''I had to remove the password parameter for the constructor because
 		we have them set their passwords below. Maybe we should make a subclass that refers to a new User, and add
-		And then make this a separate class?"""
+		And then make this a separate class?'''
 		
 		#Reference Strings to compare for password requirements
 		self.first_name = first_name
@@ -90,3 +117,4 @@ if want_recovery in ['yes', 'y']:
 
 def user_login(): #TODO: Complete this user_login function
 	print('Welcome to the Login Page')
+"""

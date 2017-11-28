@@ -1,10 +1,10 @@
 {
   "Books": {
-    "Children's Books": {
       "Harry Potter and the Sorcerer's Stone": {
         "price": 7.49,
         "quantity": 52,
         "rating": 4.8,
+        "images": "images/harry_potter_book_1.jpg",
         "other_info": {
           "author": "J K Rowling",
           "publisher": "Scholastic Inc.",
@@ -16,15 +16,14 @@
         "price": 7.47,
         "quantity": 31,
         "rating": 4.6,
+        "images": "images/hunger_games_book_1.jpg",
         "other_info": {
           "author": "Suzanne Collins",
           "publisher": "Scholastic Inc.",
           "pages": 384,
           "release_date": "July 3, 2010"
         }
-      }
-    },
-    "NonFiction Books": {
+      },
       "Leonardo da Vinci": {
         "price": 16.86,
         "quantity": 105,
@@ -47,33 +46,25 @@
           "release_date": "August 29, 2017"
         }
       }
-    }
-  },
+    },
   "Electronics": {
-    "Computers": {
-      "Laptops": {
         "Apple 13' Macbook Pro - Newest Version": {
+          "subcategory": "Computers/Laptops"
         },
         "Dell XPS 15": {
+          "subcategory": "Computers/Laptops"
         },
         "Dell XPS 13": {
-        }
-      },
-      "Desktops": {
-      }
-    },
-    "Computer Accessories": {
-
-    },
-    "Phones": {
-        "iPhone 8": {
-
+          "subcategory": "Computers/Laptops"
         },
-        "iPhone 7S": {
-        }
-
-      },
+        "iPhone 8": {
+          "subcategory": "Phones/Apple"
+        },
+        "iPhone 7": {
+          "subcategory": "Phones/Apple"
+        },
         "Moto Z Droid Edition - 32GB Verizon Wireless": {
+          "subcategory": "Phones/Android",
           "price": 263.95,
           "quantity": 46,
           "rating": 3.9,
@@ -85,39 +76,40 @@
             "other_features": ["Water repellent", "microSD card support"]
           }
         },
-
-      "HTC One M10": {
-
-      },
-        "Pixel XL - 128GB 5.5' Verizon Wireless": {
-          "price": 668.47,
+        "Pixel XL - 128GB Unlocked": {
+          "subcategory": "Phones/Android",
+          "price": 629.99,
           "quantity": 23,
-          "rating": 3.3,
+          "rating": 4.1,
+          "image": "images/google_pixel_xl.jpg",
           "other_info": {
             "OS": "Android",
             "screen_size": "5.5 inches",
             "storage": "128GB",
             "battery": "7 Hours",
-            "other_features": ["USB Type-C"]
+            "other_features": ["USB Type-C", "12.3MP Camera", "QHD Display"]
           }
         },
-    "Video Games": {
-    },
-    "Networking": {
+        "Playstation 4 Pro": {
+          "subcategory": "Video Games/Consoles"
 
-    },
-    "TV and Video": {
+        },
+        "XBOX One S": {
+          "subcategory": "Video Games/Consoles"
 
-    },
-    "Audio": {
+        },
+        "4K LG Smart TV 60 Inches": {
+          "subcategory": "TVs"
 
-    },
-    "Smart Home": {
-
-    }
+        },
+        "Oculus Rift Headset with Controllers": {
+          "subcategory": "Video Games"
+        },
+        "Go-Pro Hero 5 Action Camera": {
+          "subcategory": "Cameras"
+        }
   },
-  "Movies and Music": {
-    "Movies": {
+  "Movies": {
       "Wonder Woman Blu-ray": {
         "price": 19.97,
         "quantity": 20,
@@ -131,7 +123,7 @@
         }
       }
     },
-    "Music": {
+  "Music": {
       "Mothership (Remastered) - Led Zeppelin": {
         "price": 14.49,
         "quantity": 35,
@@ -221,5 +213,4 @@
         }
       }
     }
-  }
 }
