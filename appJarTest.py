@@ -26,7 +26,7 @@ win.setLabelBg("title", "light_green")
 win.addLabelEntry("Username")
 win.addLabelSecretEntry("Password")
 
-win.addButtons(["Submit", "Clear,", "Cancel"], press)
+win.addButtons(["Submit", "Clear", "Cancel"], press)
 
 win.setFocus("Username")
 
