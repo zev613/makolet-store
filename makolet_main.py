@@ -4,7 +4,7 @@
 
 import json
 import sys
-import password
+#import password
 from appJar import gui
 #import smtplib
 #from email.mime.multipart import MIMEMultipart
@@ -23,12 +23,34 @@ users.update(json_data) #update empty user dictionary from the json file
 inventory_data = json.load(open('inventory.json')) # load inventory json file
 inventory.update(inventory_data)
 
-win = gui("MAKOLET")
-win.setBg("blue")
-win.setFg("white")
-win.setSticky("news")
-win.setExpand("both")
-win.setFont(16)
+def button_press(button):
+	if button == "My Account":
+		print("This will take you to the My Account page")
+		#TODO: make and then call the My Account GUI
+	elif button == "Log Out":
+		print("This will take you to the My Account page")
+		#TODO: Make and then call Log Out GUI
+
+def top_menu_press(menu_option):
+	print("This will call the specific function for each category, depending on which one is clicked.")
+	#TODO: Make functions that draw the GUI page for each category, then call from here.
+
+def make_inventory_page(category):
+	win_inv_1 = gui("Inventory Main", "500x600")
+	win_inv_1.setBg("white")
+	win_inv_1.setFg("black")
+	win_inv_1.setSticky("news")
+	win_inv_1.setExpand("both")
+	win_inv_1.setFont(16)
+	menu_options = ["Homepage"] + [category for category in inventory.keys()]
+	win_inv_1.addMenuList("Makolet®", menu_options, top_menu_press)
+	win_inv_1.addLabel("category", category).setStretch("column")
+	win_inv_1.addLabel("blank_label_1", "").setStretch("column")
+	win_inv_1.addButton("My Account", button_press).setStretch("column")
+	win_inv_1.addButton("Log Out", button_press).setStretch("column")
+	win_inv_1.go()
+
+make_inventory_page("Books")
 
 print(inventory, "\n")
 print("There are:", len(inventory), "Categories in the Inventory.")
@@ -40,13 +62,13 @@ for category in inventory.keys():
 			print(inventory[category][item]["subcategory"])
 		#print("    Price:\t", "$", str(inventory[category][item]["price"]))
 		#print("   Rating:\t", str(inventory[category][item]["rating"]), "/5 stars\n")
-		win.addImage(inventory[category][item]["name"], inventory[category][item]["image"])
+		#win.addImage(inventory[category][item]["name"], inventory[category][item]["image"])
 		print("Image: - ", inventory[category][item]["image"])
 		print("Other Info:")
 		for info in inventory[category][item]["other_info"].keys():
 			print(info, inventory[category][item]["other_info"][info])
 		print("\n\n")
-win.go()
+#win.go()
 
 #print(users)
 #print('Welcome,', users['zseltzer@fandm.edu']['first_name'], users['zseltzer@fandm.edu']['last_name'])
