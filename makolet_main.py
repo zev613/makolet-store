@@ -36,18 +36,30 @@ def top_menu_press(menu_option):
 	#TODO: Make functions that draw the GUI page for each category, then call from here.
 
 def make_inventory_page(category):
+	inv_cat = inventory[category]
 	win_inv_1 = gui("Inventory Main", "500x600")
 	win_inv_1.setBg("white")
 	win_inv_1.setFg("black")
 	win_inv_1.setSticky("news")
 	win_inv_1.setExpand("both")
-	win_inv_1.setFont(16)
+	win_inv_1.setFont(10)
 	menu_options = ["Homepage"] + [category for category in inventory.keys()]
 	win_inv_1.addMenuList("Makolet®", menu_options, top_menu_press)
-	win_inv_1.addLabel("category", category).setStretch("column")
-	win_inv_1.addLabel("blank_label_1", "").setStretch("column")
-	win_inv_1.addButton("My Account", button_press).setStretch("column")
-	win_inv_1.addButton("Log Out", button_press).setStretch("column")
+	win_inv_1.addLabel("category", category)
+	win_inv_1.addLabel("blank_label_1", "")
+	win_inv_1.addButton("My Account", button_press)
+	win_inv_1.addButton("Log Out", button_press)
+	num_items = 0
+	for item  in inv_cat.keys():
+		num_items += 1
+		win_inv_1.addImage(item, inv_cat[item]["image"], 0, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 1, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 2, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 3, num_items)
+		this_other_info = "        More Info:\n"
+		for info in inv_cat[item]["other_info"].keys():
+			this_other_info += str(info) + "    -    " + str(inv_cat[item]["other_info"][info]) + "\n"
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 4, num_items)
 	win_inv_1.go()
 
 make_inventory_page("Books")
@@ -62,6 +74,7 @@ for category in inventory.keys():
 			print(inventory[category][item]["subcategory"])
 		#print("    Price:\t", "$", str(inventory[category][item]["price"]))
 		#print("   Rating:\t", str(inventory[category][item]["rating"]), "/5 stars\n")
+		make_inventory_page(inventory[category])
 		#win.addImage(inventory[category][item]["name"], inventory[category][item]["image"])
 		print("Image: - ", inventory[category][item]["image"])
 		print("Other Info:")
