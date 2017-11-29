@@ -48,14 +48,19 @@
       }
     },
   "Electronics": {
-        "Apple 13' Macbook Pro - Newest Version": {
+        "Apple Macbook Air": {
           "subcategory": "Computers/Laptops",
-          "price": ,
-          "quantity": ,
-          "rating": ,
-          "image": "images/apple_macbook_pro_13.gif",
+          "price": 999.99,
+          "quantity": 32,
+          "rating": 4.2,
+          "image": "images/apple_macbook_air.gif",
           "other_info": {
-
+            "OS": "macOS",
+            "CPU": "Intel Core i5 1.8GHz",
+            "screen_size": 13.3,
+            "resolution": "1440x900",
+            "storage": "128GB",
+            "RAM": "8GB"
           }
         },
         "Dell XPS 15": {

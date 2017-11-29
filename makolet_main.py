@@ -5,6 +5,7 @@
 import json
 import sys
 import password
+from appJar import gui
 #import smtplib
 #from email.mime.multipart import MIMEMultipart
 #from email.mime.text import MIMEText
@@ -22,26 +23,30 @@ users.update(json_data) #update empty user dictionary from the json file
 inventory_data = json.load(open('inventory.json')) # load inventory json file
 inventory.update(inventory_data)
 
-
+win = gui("MAKOLET")
+win.setBg("blue")
+win.setFg("white")
+win.setSticky("news")
+win.setExpand("both")
+win.setFont(16)
 
 print(inventory, "\n")
 print("There are:", len(inventory), "Categories in the Inventory.")
 for category in inventory.keys():
-	print("<CATEGORY>", category, "\n")
+	print(category, "\n")
 	for item in inventory[category].keys():
-		print("<ITEM NAME>", item, "\n")
+		print(item, "\n")
 		if "subcategory" in inventory[category][item]:
-			category = inventory[category][item]["subcategory"].split("/")
-			for sub in category:
-				print("\tSub-Category", sub)
-		print("PRICE:", "\t\t", "$", inventory[category][item]["price"])
-		print("RATING:", "\t\t", inventory[category][item]["rating"], "/5 stars\n")
-		print("<OTHER_INFO>:")
+			print(inventory[category][item]["subcategory"])
+		#print("    Price:\t", "$", str(inventory[category][item]["price"]))
+		#print("   Rating:\t", str(inventory[category][item]["rating"]), "/5 stars\n")
+		win.addImage(inventory[category][item]["name"], inventory[category][item]["image"])
+		print("Image: - ", inventory[category][item]["image"])
+		print("Other Info:")
 		for info in inventory[category][item]["other_info"].keys():
-			print("<KEY>:", info, "<VALUE>:", inventory[category][item]["other_info"][info])
-		
-		
-
+			print(info, inventory[category][item]["other_info"][info])
+		print("\n\n")
+win.go()
 
 #print(users)
 #print('Welcome,', users['zseltzer@fandm.edu']['first_name'], users['zseltzer@fandm.edu']['last_name'])

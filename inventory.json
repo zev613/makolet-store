@@ -1,10 +1,11 @@
 {
   "Books": {
       "Harry Potter and the Sorcerer's Stone": {
+        "name": "Harry Potter and the Sorcerer's Stone",
         "price": 7.49,
         "quantity": 52,
         "rating": 4.8,
-        "images": "images/harry_potter_book_1.jpg",
+        "image": "images/harry_potter_book_1.gif",
         "other_info": {
           "author": "J K Rowling",
           "publisher": "Scholastic Inc.",
@@ -12,11 +13,12 @@
           "release_date": "September 8, 1999"
         }
       },
-      "The Hunger Games (Book 1)": {
+      "The Hunger Games - Suzanne Collins": {
+        "name": "The Hunger Games - Suzanne Collins",
         "price": 7.47,
         "quantity": 31,
         "rating": 4.6,
-        "images": "images/hunger_games_book_1.jpg",
+        "image": "images/hunger_games_book_1.gif",
         "other_info": {
           "author": "Suzanne Collins",
           "publisher": "Scholastic Inc.",
@@ -24,155 +26,176 @@
           "release_date": "July 3, 2010"
         }
       },
-      "Leonardo da Vinci": {
+      "Leonardo da Vinci - Walter Isaacson": {
+        "name": "Leonardo da Vinci - Walter Isaacson",
         "price": 16.86,
         "quantity": 105,
         "rating": 4.3,
+        "image": "images/leonardo_da_vinci_isaacson.gif",
         "other_info": {
           "author": "Walter Isaacson",
           "publisher": "Simon & Schuster",
           "pages": 624,
           "release_date": "October 17, 2017"
         }
-      },
-      "Life 3.0: Being Human in the Age of Artificial Intelligence": {
-        "price": 18.30,
-        "quantity": 4,
-        "rating": 4.4,
-        "other_info": {
-          "author": "Max Tegmark",
-          "publisher": "Knopf",
-          "pages": 384,
-          "release_date": "August 29, 2017"
-        }
       }
     },
   "Electronics": {
-        "Apple 13' Macbook Pro - Newest Version": {
-          "subcategory": "Computers/Laptops",
-          "price": ,
-          "quantity": ,
-          "rating": ,
-          "image": "images/apple_macbook_pro_13.gif",
-          "other_info": {
-
-          }
-        },
-        "Dell XPS 15": {
-          "subcategory": "Laptops",
-          "price": 1788.00,
-          "quantity": 3,
-          "rating": 3.6,
-          "image": "images/dell_xps_15.gif",
-          "other_info": {
-            "OS": "Windows 10",
-            "CPU": "Intel Core i7-7700HQ",
-            "screen_size": 15,
-            "resolution": "3840x2160",
-            "storage": "512GB",
-            "RAM": "16GB",
-            "GPU": "Nvidia GTX 1050"
-          }
-        },
-        "Dell XPS 13": {
-          "subcategory": "Laptops",
-          "price": 829.99,
-          "quantity": 12,
-          "rating": 3.4,
-          "image": "images/dell_xps_13.gif",
-          "other_info": {
-            "OS": "Windows",
-            "CPU": "Intel Core i5-6200u",
-            "screen_size": 13,
-            "resolution": "1920x1080",
-            "storage": "128GB",
-            "RAM": "8GB"
-          }
-        },
-        "iPhone 8": {
-          "subcategory": "Phones",
-          "price": 825,
-          "quantity": 45,
-          "rating": 3.3,
-          "image": "images/iphone_8.gif",
-          "other_info": {
-            "OS": "IOS",
-            "screen_size": 4.7,
-            "storage": "64GB",
-            "battery": "21 Hours"
-          }
-        },
-        "iPhone 7": {
-          "subcategory": "Phones",
-          "price": 749.99,
-          "quantity": 43,
-          "rating": 4.0,
-          "image": "iphone_7.gif",
-          "other_info": {
-            "OS": "IOS",
-            "screen_size": 4.7,
-            "storage": "128GB",
-            "battery": "12 Hours",
-            "other_features": ["3D Touch", "12MP iSight Camera", "Water Resistant"]
-          }
-        },
-        "Moto Z Droid Edition - 32GB Verizon Wireless": {
-          "subcategory": "Phones",
-          "price": 263.95,
-          "quantity": 46,
-          "rating": 3.9,
-          "image": "images/moto_z_droid.gif",
-          "other_info": {
-            "OS": "Android",
-            "screen_size": 5.5,
-            "storage": "32GB",
-            "battery": "8 Hours",
-            "other_features": ["Water repellent", "microSD card support"]
-          }
-        },
-        "Pixel XL - 128GB Unlocked": {
-          "subcategory": "Phones",
-          "price": 629.99,
-          "quantity": 23,
-          "rating": 4.1,
-          "image": "images/google_pixel_xl.gif",
-          "other_info": {
-            "OS": "Android",
-            "screen_size": "5.5 inches",
-            "storage": "128GB",
-            "battery": "7 Hours",
-            "other_features": ["USB Type-C", "12.3MP Camera", "QHD Display"]
-          }
-        },
-        "Playstation 4 Pro": {
-          "subcategory": "Video Games",
-          "price": 399,
-          "quantity": 50,
-          "rating": 4.5,
-          "image": "images/playstation_pro.gif"
-        },
-        "XBOX One S": {
-          "subcategory": "Video Games"
-
-        },
-        "4K LG Smart TV 60 Inches": {
-          "subcategory": "TVs"
-
-        },
-        "Oculus Rift Headset with Controllers": {
-          "subcategory": "Video Games"
-        },
-        "Go-Pro Hero 5 Action Camera": {
-          "subcategory": "Cameras"
-        }
+    "Apple 13' Macbook Pro - Newest Version": {
+      "name": "Apple 13' Macbook Pro - Newest Version",
+      "subcategory": "Laptops",
+      "price": 1299.00,
+      "quantity": 23,
+      "rating": 4.3,
+      "image": "images/apple_macbook_pro_13.gif",
+      "other_info": {
+        "OS": "macOS",
+        "CPU": "Intel Core i5 2.3GHz",
+        "screen_size": "2560x1600",
+        "storage": "128GB",
+        "RAM": "8GB"
+      }
+    },
+    "Dell XPS 15": {
+      "name": "Dell XPS 15",
+      "subcategory": "Laptops",
+      "price": 1788.00,
+      "quantity": 3,
+      "rating": 3.6,
+      "image": "images/dell_xps_15.gif",
+      "other_info": {
+        "OS": "Windows 10",
+        "CPU": "Intel Core i7-7700HQ",
+        "screen_size": 15,
+        "resolution": "3840x2160",
+        "storage": "512GB",
+        "RAM": "16GB",
+        "GPU": "Nvidia GTX 1050"
+      }
+    },
+    "Dell XPS 13": {
+      "name": "Dell XPS 13",
+      "subcategory": "Laptops",
+      "price": 829.99,
+      "quantity": 12,
+      "rating": 3.4,
+      "image": "images/dell_xps_13.gif",
+      "other_info": {
+        "OS": "Windows",
+        "CPU": "Intel Core i5-6200u",
+        "screen_size": 13,
+        "resolution": "1920x1080",
+        "storage": "128GB",
+        "RAM": "8GB"
+      }
+    },
+    "iPhone 8": {
+      "name": "iPhone 8",
+      "subcategory": "Phones",
+      "price": 825,
+      "quantity": 45,
+      "rating": 3.3,
+      "image": "images/iphone_8.gif",
+      "other_info": {
+        "OS": "IOS",
+        "screen_size": 4.7,
+        "storage": "64GB",
+        "battery": "21 Hours"
+      }
+    },
+    "iPhone 7": {
+      "name": "iPhone 7",
+      "subcategory": "Phones",
+      "price": 749.99,
+      "quantity": 43,
+      "rating": 4.0,
+      "image": "images/iphone_7.gif",
+      "other_info": {
+        "OS": "IOS",
+        "screen_size": 4.7,
+        "storage": "128GB",
+        "battery": "12 Hours",
+        "other_features": [
+          "3D Touch",
+          "12MP iSight Camera",
+          "Water Resistant"
+        ]
+      }
+    },
+    "Moto Z Droid Edition - 32GB Verizon Wireless": {
+      "name": "Moto Z Droid Edition - 32GB Verizon Wireless",
+      "subcategory": "Phones",
+      "price": 263.95,
+      "quantity": 46,
+      "rating": 3.9,
+      "image": "images/moto_z_droid.gif",
+      "other_info": {
+        "OS": "Android",
+        "screen_size": 5.5,
+        "storage": "32GB",
+        "battery": "8 Hours",
+        "other_features": [
+          "Water repellent",
+          "microSD card support"
+        ]
+      }
+    },
+    "Pixel XL - 128GB Unlocked": {
+      "name": "Pixel XL - 128GB Unlocked",
+      "subcategory": "Phones",
+      "price": 629.99,
+      "quantity": 23,
+      "rating": 4.1,
+      "image": "images/google_pixel_xl.gif",
+      "other_info": {
+        "OS": "Android",
+        "screen_size": "5.5 inches",
+        "storage": "128GB",
+        "battery": "7 Hours",
+        "other_features": [
+          "USB Type-C",
+          "12.3MP Camera",
+          "QHD Display"
+        ]
+      }
+    },
+    "Playstation 4 Pro": {
+      "name": "Playstation 4 Pro",
+      "subcategory": "Video Games",
+      "price": 334.45,
+      "quantity": 15,
+      "rating": 4.8,
+      "image": "images/playstation_pro.gif",
+      "other_info": {
+        "RAM": "8GB",
+        "storage_size": "1 TB",
+        "dimensions": "Approx. 265×39×288 mm"
+      }
+    },
+    "Xbox One S": {
+      "name": "Xbox One S",
+      "subcategory": "Video Games",
+      "price": 238.00,
+      "quantity": 102,
+      "rating": 4.5,
+      "image": "images/xbox_one_s.gif",
+      "other_info": {
+        "RAM": "8GB",
+        "storage_size": "1 TB",
+        "dimensions": "11.6x8.9x2.5 inches",
+        "weight": "6.2pounds",
+        "color": "Black and White"
+      }
+    }
   },
   "Movies": {
       "Wonder Woman Blu-ray": {
+        "name": "Wonder Woman Blu-ray",
         "price": 19.97,
         "quantity": 20,
         "rating": 4.3,
+        "image": "images/wonder_woman_blu_ray.gif",
         "other_info": {
-          "main_actors": ["Gal Gadot", "Chris Pine"],
           "director": "Patty Jenkins",
           "studio": "Warner Brothers",
           "runtime": "133 minutes",
@@ -182,9 +205,11 @@
     },
   "Music": {
       "Mothership (Remastered) - Led Zeppelin": {
+        "name": "Mothership (Remastered) - Led Zeppelin",
         "price": 14.49,
         "quantity": 35,
         "rating": 4.8,
+        "image": "images/led_zeppelin_mothership.gif",
         "other_info": {
           "artist": "Led Zeppelin",
           "label": "Rhino Atlantic",
@@ -193,9 +218,11 @@
         }
       },
       "Back In Black - AC/DC": {
+        "name": "Back in Black - AC/DC",
         "price": 9.00,
         "quantity": 14,
         "rating": 4.8,
+        "image": "images/ac_dc_back_in_black.gif",
         "other_info": {
           "artist": "AC/DC",
           "label": "Epic",
@@ -204,9 +231,11 @@
         }
       },
       "The Dark Side of the Moon - Pink Floyd": {
+        "name": "The Dark Side of the Moon - Pink Floyd",
         "price": 10.75,
         "quantity": 65,
         "rating": 4.6,
+        "image": "images/pink_floyd_dark_side_of_the_moon.gif",
         "other_info": {
           "artist": "Pink Floyd",
           "label": "Pink Floyd Records",
@@ -214,21 +243,12 @@
           "release_date": "January 1, 2016"
         }
       },
-      "reputation - Taylor Swift": {
-        "price": 12.97,
-        "quantity": 156,
-        "rating": 4.1,
-        "other_info": {
-          "artist": "Taylor Swift",
-          "label": "Big Machine Records",
-          "total_length": "55:38",
-          "release_date": "November 17, 2017"
-        }
-      },
       "DAMN. - Kendrick Lamar": {
+        "name": "DAMN. - Kendrick Lamar",
         "price": 8.00,
         "quantity": 86,
         "rating": 4.7,
+        "image": "images/damn_kendrick_lamar.gif",
         "other_info": {
           "artist": "Kendrick Lamar",
           "label": "Aftermath",
@@ -236,10 +256,12 @@
           "release_date": "April 14, 2017"
         }
       },
-      "44:44 - Jay-Z": {
+      "4:44 - Jay-Z": {
+        "name": "4:44 - Jay-Z",
         "price": 11.68,
         "quantity": 97,
         "rating": 4.3,
+        "image": "images/4_44_jayz.gif",
         "other_info": {
           "artist": "Jay-Z",
           "label": "Roc Nation",
@@ -248,9 +270,11 @@
         }
       },
       "Hamilton Original Broadway Cast Recording": {
+        "name": "Hamilton Original Broadway Cast Recording",
         "price": 18.99,
         "quantity": 101,
         "rating": 4.8,
+        "image": "images/hamilton_cd.gif",
         "other_info": {
           "artist": "Various Artists",
           "label": "Atlantic",
@@ -258,10 +282,12 @@
           "release_date": "October 16, 2015"
         }
       },
-      "The Platinum Collection: Greatest Hits I, II & III - Queen": {
+      "The Platinum Collection: Greatest Hits - Queen": {
+        "name": "The Platinum Collection: Greatest Hits - Queen",
         "price": 89.27,
         "quantity": 14,
         "rating": 4.7,
+        "image": "images/queen_platinum_collection.gif",
         "other_info": {
           "artist": "Queen",
           "label": "Hollywood Records",
