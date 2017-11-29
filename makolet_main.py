@@ -31,13 +31,18 @@ def button_press(button):
 		print("This will take you to the My Account page")
 		#TODO: Make and then call Log Out GUI
 
+def buy_button_press(button):
+	if button == "Buy Now":
+		print("This will let you buy the item as long as your account has enough of a Balance")
+		#TODO: This will check user's balance, if there is enough money, buys it after being pressed, and takes the user to the Shipping Page, has them confirm the info is correct, then will send a "order confirmation" email using smtp. Then will send them back to Homepage.
+
 def top_menu_press(menu_option):
 	print("This will call the specific function for each category, depending on which one is clicked.")
 	#TODO: Make functions that draw the GUI page for each category, then call from here.
 
 def make_inventory_page(category):
 	inv_cat = inventory[category]
-	win_inv_1 = gui("Inventory Main", "500x600")
+	win_inv_1 = gui("Inventory Main", "600x800")
 	win_inv_1.setBg("white")
 	win_inv_1.setFg("black")
 	win_inv_1.setSticky("news")
@@ -45,24 +50,29 @@ def make_inventory_page(category):
 	win_inv_1.setFont(10)
 	menu_options = ["Homepage"] + [category for category in inventory.keys()]
 	win_inv_1.addMenuList("Makolet®", menu_options, top_menu_press)
-	win_inv_1.addLabel("category", category)
-	win_inv_1.addLabel("blank_label_1", "")
-	win_inv_1.addButton("My Account", button_press)
-	win_inv_1.addButton("Log Out", button_press)
+	win_inv_1.addLabel("logo", "Makolet®", 0, 0)
+	win_inv_1.addLabel("category", category, 0, 1)
+	win_inv_1.addLabel("blank_label_1", "", 0, 2)
+	win_inv_1.addButton("My Account", button_press, 0, 3)
+	win_inv_1.addButton("Log Out", button_press, 0, 4)
+	
 	num_items = 0
 	for item  in inv_cat.keys():
 		num_items += 1
-		win_inv_1.addImage(item, inv_cat[item]["image"], 0, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 1, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 2, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 3, num_items)
-		this_other_info = "        More Info:\n"
-		for info in inv_cat[item]["other_info"].keys():
+		win_inv_1.addImage(item, inv_cat[item]["image"], 1, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 2, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, num_items)
+		win_inv_1.addButton("Buy Now" + "   '" + str(num_items) + "'", buy_button_press, 4, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, num_items)
+		win_inv_1.startToggleFrame("More Info" + "     " + str(num_items))
+		this_other_info = ""
+		for info in inv_cat[item]["other_info"].keys(): #creates a string where each piece of information in other_info is printed, with newlines. This will fill the other_info Label.
 			this_other_info += str(info) + "    -    " + str(inv_cat[item]["other_info"][info]) + "\n"
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 4, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 6, num_items)
+		win_inv_1.stopToggleFrame()
 	win_inv_1.go()
 
-make_inventory_page("Books")
+#make_inventory_page("Books") #Create inventory page for "Books"
 
 print(inventory, "\n")
 print("There are:", len(inventory), "Categories in the Inventory.")
@@ -72,19 +82,13 @@ for category in inventory.keys():
 		print(item, "\n")
 		if "subcategory" in inventory[category][item]:
 			print(inventory[category][item]["subcategory"])
-		#print("    Price:\t", "$", str(inventory[category][item]["price"]))
-		#print("   Rating:\t", str(inventory[category][item]["rating"]), "/5 stars\n")
-		make_inventory_page(inventory[category])
-		#win.addImage(inventory[category][item]["name"], inventory[category][item]["image"])
 		print("Image: - ", inventory[category][item]["image"])
 		print("Other Info:")
 		for info in inventory[category][item]["other_info"].keys():
 			print(info, inventory[category][item]["other_info"][info])
 		print("\n\n")
-#win.go()
+	make_inventory_page(category)
 
-#print(users)
-#print('Welcome,', users['zseltzer@fandm.edu']['first_name'], users['zseltzer@fandm.edu']['last_name'])
 """
 user_quit = False #flag var for main while loop
 while user_quit == False:
@@ -112,8 +116,7 @@ while user_quit == False:
 		#Store User back into database
 		user_quit = True #set flag var for main loop
 		sys.exit() #quit program
-"""
-"""
+
 class User():
 	'''Makes a new user with the specified attributes, then have user create a new password'''
 	def __init__(self, first_name, last_name, email, address):
