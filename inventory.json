@@ -38,6 +38,45 @@
           "pages": 624,
           "release_date": "October 17, 2017"
         }
+      },
+      "Learning Python - 5th Edition": {
+        "name": "Learning Python - 5th Edition",
+        "price": 58.57,
+        "quantity": 3,
+        "rating": 4.0,
+        "image": "images/learning_python_book.gif",
+        "other_info": {
+          "author": "Mark Lutz",
+          "publisher": "O'Reilly",
+          "pages": 1648,
+          "release_date": "July 6, 2013"
+        }
+      },
+      "Homo Deus: A Brief History of Tomorrow": {
+        "name": "Homo Deus: A Brief History of Tomorrow",
+        "price": 19.85,
+        "quantity": 45,
+        "rating": 4.4,
+        "image": "images/homo_deus.gif",
+        "other_info": {
+          "author": "Yuval Noah Harari",
+          "publisher": "Harper",
+          "pages": 464,
+          "release_date": "February 21, 2017"
+        }
+      },
+      "The Fault in Our Stars": {
+        "name": "The Fault in Our Stars",
+        "price": 12.27,
+        "quantity": 12,
+        "rating": 4.7,
+        "image": "images/the_fault_in_our_stars.gif",
+        "other_info": {
+          "author": "John Green",
+          "publisher": "Penguin Books",
+          "pages": 336,
+          "release_date": "April 8, 2014"
+        }
       }
     },
   "Electronics": {
@@ -201,11 +240,37 @@
           "runtime": "133 minutes",
           "release_date": "September 19, 2017"
         }
+      },
+      "The Lord of the Rings: Motion Picture Trilogy Box Set": {
+        "name": "The Lord of the Rings: Motion Picture Trilogy BluRay",
+        "price": 79.99,
+        "quantity": 24,
+        "rating": 4.6,
+        "image": "images/lord_of_the_rings_trilogy_blu_ray.gif",
+        "other_info": {
+          "director": "Peter Jackson",
+          "studio": "Warner Brothersw",
+          "runtime": "681 minutes",
+          "release_date": "May 1, 2012"
+        }
+      },
+      "Spider-Man: Homecoming Blu-Ray": {
+        "name": "Spider-Man: Homecoming Blu-Ray",
+        "price": 22.96,
+        "quantity": 100,
+        "rating": 4.2,
+        "image": "images/spider_man_homecoming_blu_ray.gif",
+        "other_info": {
+          "director": "Jon Watts",
+          "studio": "Sony Pictures",
+          "runtime": "133 minutes",
+          "release_date": "October 17, 2017"
+        }
       }
     },
   "Music": {
-      "Mothership (Remastered) - Led Zeppelin": {
-        "name": "Mothership (Remastered) - Led Zeppelin",
+      "Mothership (Remastered)": {
+        "name": "Mothership (Remastered)",
         "price": 14.49,
         "quantity": 35,
         "rating": 4.8,
@@ -217,8 +282,8 @@
           "release_date": "Novemember 6, 2015"
         }
       },
-      "Back In Black - AC/DC": {
-        "name": "Back in Black - AC/DC",
+      "Back In Black": {
+        "name": "Back in Black",
         "price": 9.00,
         "quantity": 14,
         "rating": 4.8,
@@ -230,8 +295,8 @@
           "release_date": "July 25, 1980"
         }
       },
-      "The Dark Side of the Moon - Pink Floyd": {
-        "name": "The Dark Side of the Moon - Pink Floyd",
+      "The Dark Side of the Moon": {
+        "name": "The Dark Side of the Moon",
         "price": 10.75,
         "quantity": 65,
         "rating": 4.6,
@@ -243,8 +308,8 @@
           "release_date": "January 1, 2016"
         }
       },
-      "DAMN. - Kendrick Lamar": {
-        "name": "DAMN. - Kendrick Lamar",
+      "DAMN.": {
+        "name": "DAMN.",
         "price": 8.00,
         "quantity": 86,
         "rating": 4.7,
@@ -256,8 +321,8 @@
           "release_date": "April 14, 2017"
         }
       },
-      "4:44 - Jay-Z": {
-        "name": "4:44 - Jay-Z",
+      "4:44": {
+        "name": "4:44",
         "price": 11.68,
         "quantity": 97,
         "rating": 4.3,
@@ -269,8 +334,8 @@
           "release_date": "July 7, 2017"
         }
       },
-      "Hamilton Original Broadway Cast Recording": {
-        "name": "Hamilton Original Broadway Cast Recording",
+      "Hamilton Broadway Soundtrack": {
+        "name": "Hamilton Broadway Soundtrack",
         "price": 18.99,
         "quantity": 101,
         "rating": 4.8,
@@ -282,8 +347,8 @@
           "release_date": "October 16, 2015"
         }
       },
-      "The Platinum Collection: Greatest Hits - Queen": {
-        "name": "The Platinum Collection: Greatest Hits - Queen",
+      "The Platinum Collection": {
+        "name": "The Platinum Collection",
         "price": 89.27,
         "quantity": 14,
         "rating": 4.7,

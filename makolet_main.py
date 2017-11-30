@@ -52,9 +52,9 @@ def make_inventory_page(category):
 	win_inv_1.addMenuList("Makolet®", menu_options, top_menu_press)
 	win_inv_1.addLabel("logo", "Makolet®", 0, 0)
 	win_inv_1.addLabel("category", category, 0, 1)
-	win_inv_1.addLabel("blank_label_1", "", 0, 2)
-	win_inv_1.addButton("My Account", button_press, 0, 3)
-	win_inv_1.addButton("Log Out", button_press, 0, 4)
+	win_inv_1.addLabel("blank_label_1", "", 0, 2) #(len(inv_cat) - 3))
+	win_inv_1.addButton("My Account", button_press, 0, 3)#(len(inv_cat) - 2))
+	win_inv_1.addButton("Log Out", button_press, 0, 4)#(len(inv_cat) - 1))
 	
 	num_items = 0
 	for item  in inv_cat.keys():
@@ -64,10 +64,10 @@ def make_inventory_page(category):
 		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, num_items)
 		win_inv_1.addButton("Buy Now" + "   '" + str(num_items) + "'", buy_button_press, 4, num_items)
 		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, num_items)
-		win_inv_1.startToggleFrame("More Info" + "     " + str(num_items))
+		win_inv_1.startToggleFrame("More Info" + "     " + str(num_items), 6, num_items)
 		this_other_info = ""
 		for info in inv_cat[item]["other_info"].keys(): #creates a string where each piece of information in other_info is printed, with newlines. This will fill the other_info Label.
-			this_other_info += str(info) + "    -    " + str(inv_cat[item]["other_info"][info]) + "\n"
+			this_other_info += str(info) + " : " + str(inv_cat[item]["other_info"][info]) + "\n"
 		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 6, num_items)
 		win_inv_1.stopToggleFrame()
 	win_inv_1.go()
