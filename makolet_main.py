@@ -4,7 +4,7 @@
 
 import json
 import sys
-#import password
+import password
 from appJar import gui
 #import smtplib
 #from email.mime.multipart import MIMEMultipart
@@ -56,19 +56,20 @@ def make_inventory_page(category):
 	win_inv_1.addButton("My Account", button_press, 0, 3)#(len(inv_cat) - 2))
 	win_inv_1.addButton("Log Out", button_press, 0, 4)#(len(inv_cat) - 1))
 	
-	num_items = 0
+	item_acc = 0
+	num_page = len(inv_cat.keys()) % 5
 	for item  in inv_cat.keys():
-		num_items += 1
-		win_inv_1.addImage(item, inv_cat[item]["image"], 1, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 2, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, num_items)
-		win_inv_1.addButton("Buy Now" + "   '" + str(num_items) + "'", buy_button_press, 4, num_items)
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, num_items)
-		win_inv_1.startToggleFrame("More Info" + "     " + str(num_items), 6, num_items)
+		item_acc += 1
+		win_inv_1.addImage(item, inv_cat[item]["image"], 1, item_acc)
+		win_inv_1.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 2, item_acc)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, item_acc)
+		win_inv_1.addButton("Buy Now" + "   '" + str(item_acc) + "'", buy_button_press, 4, item_acc)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, item_acc)
+		win_inv_1.startToggleFrame("More Info" + "     " + str(item_acc), 6, item_acc)
 		this_other_info = ""
 		for info in inv_cat[item]["other_info"].keys(): #creates a string where each piece of information in other_info is printed, with newlines. This will fill the other_info Label.
 			this_other_info += str(info) + " : " + str(inv_cat[item]["other_info"][info]) + "\n"
-		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 6, num_items)
+		win_inv_1.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 6, item_acc)
 		win_inv_1.stopToggleFrame()
 	win_inv_1.go()
 
@@ -89,34 +90,6 @@ for category in inventory.keys():
 		print("\n\n")
 	make_inventory_page(category)
 
-"""
-user_quit = False #flag var for main while loop
-while user_quit == False:
-	print("Welcome to Makolet®, the Text-Based Store™\n")
-	print("Please select one of the following menu choices, using its corresponding keyword:\n") #print menu choices
-	print(" * Login for Existing Users  -  to select type: 'login' or 'log in'")
-	print(" * Create a New Account  -  to select type: 'create account' or 'create user'")
-	print(" * Quit Menu  -  to select type: 'quit' or 'exit'")
-	choice = input("Type your choice:\n") #get user choice for menu
-	valid_choices = ['login', 'log in', 'create account', 'create user', 'quit', 'exit'] #possible options to check if valid
-	while choice not in valid_choices: #if choice not valid,
-		print("Your choice was not one of the options listed. Please try again.") #have the user try again
-		choice = input("Type your choice:\n") #get new value for choice
-	if choice == 'login' or choice == 'log in': #if user picks 'login'
-		print("Go to Login Menu") #TODO: create login function, and call it here.
-		#THE LOOP WILL CONTINUE GOING UNTIL SOMETHING STOPS IT, SUCH AS INPUT. MAY NEED TO CHANGE THE LOGIC FLOW
-		#make login function, called from here.
-		#test = input('Hello')
-		
-	elif choice == 'create account' or 'create user':
-		print("Go to Create Account Menu")
-		#TODO make new account function, called from here.
-	elif choice == 'quit' or choice == 'exit': #if user wants to quit
-		print("Sorry to see you leave. Thank you for shopping with Makolet®, the Text-Based Store™\nGoodbye")
-		#Store User back into database
-		user_quit = True #set flag var for main loop
-		sys.exit() #quit program
-
 class User():
 	'''Makes a new user with the specified attributes, then have user create a new password'''
 	def __init__(self, first_name, last_name, email, address):
@@ -133,7 +106,7 @@ class User():
 				email = input("You entered an invalid email address, please type it again.") #if it does not, have re-enter their email address.
 				continue
 		self.email = email #set email to instance var.
-		#self.address = address
+		self.address = address
 		#self.purchase_history = purchase_history
 
 		#The folllowing is the code to create a new password
@@ -150,6 +123,9 @@ class User():
 
 	def get_password(self):
 		return self.password
+	
+	def get_address(self):
+		return self.address
 
 zseltzer = User('Zev', 'Seltzer', 'zev123@gmail.com') #create a new user, Zev
 want_recovery = input("Would you like to recover your password? Type yes or no").lower()
@@ -160,4 +136,3 @@ if want_recovery in ['yes', 'y']:
 
 def user_login(): #TODO: Complete this user_login function
 	print('Welcome to the Login Page')
-"""
