@@ -1,4 +1,4 @@
 # makolet-store
 Our Final Project for CPS111
-Test to Fetch
-Hows it going Harry
+
+USes AppJar to createa GUI based python 'e-commerce' store.
