@@ -2,7 +2,7 @@
    "zseltzer@fandm.edu": {
       "first_name": "Zev",
       "last_name": "Seltzer",
-      "password": "This_is_my_password",
+      "password": "password",
       "address": ["315 Prospect St.", "", "Northampton, MA 01060"],
       "account_info": {
          "balance": 100.00,
