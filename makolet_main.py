@@ -22,7 +22,7 @@ global email
 global password
 global re_password
 
-current_user = ""
+global current_user
 user_logged_in = False
 
 json_data = json.load(open('users.json')) #load user database from json file
@@ -74,6 +74,8 @@ def press_new_user(button):
 			users[app.getEntry("Email Address")] = {"first_name": app.getEntry("First Name"), "last_name": app.getEntry("Last Name"), "password": app.getEntry("Password"),
 			                "address": ['St', 'Apt', 'City', 'State', 'Zip'],
 			                "account_info": {"balance": 0.00, "purchase_history": {}}}
+			with open('users.json', 'w') as outfile:
+				json.dump(users, outfile)
 			print("<DEBUG>: Added Account to users dictionary/.json")
 			app.showSubWindow("User Login")
 			app.hideSubWindow("New User")
@@ -246,11 +248,28 @@ app.stopSubWindow()
 """End Store Inventory Sub-Window"""
 
 """Begin My Account Sub-Window"""
+#TODO: Complete the My Account Sub Window, then enable it
+#TODO: Need to figure out how to use the email variable within this scope
+'''
 app.startSubWindow("My Account")
-app.addLabel("my_account_info", "Your Account Information")
 app.setSticky("news")
 app.setStretch("both")
+print("email: ", email)
+app.startLabelFrame("my_account_info", "Hi, " + users[current_user]["fist_name"] + "!")
+app.startToggleFrame("purchase_history_frame", 0, 0)
+app.setToggleFrameText("purchase_history_frame", "Items Purchased")
+purchased_items_acc = 0
+user_purchases = users[current_user]["account_info"]["purchase_history"] #make code simpler
+for item in user_purchases.keys():
+	app.addLabel("purchases_label_" + purchased_items_acc + "_title", "Item: ", 1, 0)
+	app.addLabel("purchases_" + item, item, 2, 0)
+	purchased_items_acc += 1
+app.addLabel("")
+
+app.stopToggleFrame()
+app.stopLabelFrame()
 app.stopSubWindow()
+'''
 """End My Account Sub-Window"""
 
 """Welcome Main Page Goes Here"""
