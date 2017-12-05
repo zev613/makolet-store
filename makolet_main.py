@@ -18,12 +18,18 @@ users = {}
 inventory = {} #Dictionary that represents the entire store's Inventory
 
 global first_name
+first_name = "John"
 global last_name
+last_name = "Smith"
 global email
+email = "jsmith@fandm.edu"
 global password
+password = "password"
 global re_password
+re_password = "password"
 
 global current_user
+current_user = "jsmith@fandm.edu"
 user_logged_in = False
 
 json_data = json.load(open('users.json')) #load user database from json file
@@ -45,12 +51,12 @@ def menu_button_press(button):
 		
 
 def buy_button_press(button):
-	item_name = button.split("_Button")
+	item_name = button.split("_Button")[0]
 	item_category = ""
 	"""since the button function cant pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
 	for category in inventory:
 		for item in category:
-			if item["name"] == item_name: #if name value is same as the first half of Button name
+			if inventory[category][item]["name"] == item_name: #if name value is same as the first half of Button name
 				item_category = category
 				print("<DEBUG>: category", category)
 	
@@ -166,6 +172,7 @@ def press_submit_user_login(button):
 				if app.yesNoBox("Password Incorrect",
 				    "The password you entered is incorrect.\nWould you like us to send you your password by email?", parent = "User Login") == True:
 					smtp2.password_recovery(email, users[email]["password"])
+					app.infoBox("recovery_sent", "Your password has been sent to the email " + email + ".", parent="User Login")
 				else:
 					print("<LOG>: Not sending Recovery Email")
 		else:
@@ -248,7 +255,7 @@ app.addLabel("logo", "Makolet®", 0, 0)
 app.addEmptyLabel("blank_1", 0, 2)  # (len(category) - 3))
 app.addButton("My Account", menu_button_press, 0, 3)  # (len(category) - 2))
 app.addButton("Log Out", menu_button_press, 0, 4)  # (len(category) - 1))
-app.startTabbedFrame("Inventory_Tabs", colspan=4)  # Each category has a tab
+app.startTabbedFrame("Inventory_Tabs")#, colspan=4)  # Each category has a tab
 item_acc = 0  # global
 for category in inventory.keys():
 	inv_cat = inventory[category]
@@ -291,12 +298,12 @@ app.stopSubWindow()
 """Begin My Account Sub-Window"""
 #TODO: Complete the My Account Sub Window, then enable it
 #TODO: Need to figure out how to use the email variable within this scope
-'''
+
 app.startSubWindow("My Account")
 app.setSticky("news")
 app.setStretch("both")
 print("email: ", email)
-app.startLabelFrame("my_account_info", "Hi, " + users[current_user]["fist_name"] + "!")
+app.startLabelFrame("Welcome " + users[current_user]["first_name"] + " " + users[current_user]["first_name"] + "!")
 app.startToggleFrame("purchase_history_frame", 0, 0)
 app.setToggleFrameText("purchase_history_frame", "Items Purchased")
 purchased_items_acc = 0
@@ -310,7 +317,7 @@ app.addLabel("")
 app.stopToggleFrame()
 app.stopLabelFrame()
 app.stopSubWindow()
-'''
+
 """End My Account Sub-Window"""
 
 """Welcome Main Page Goes Here"""

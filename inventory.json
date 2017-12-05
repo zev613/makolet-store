@@ -88,7 +88,7 @@
       "rating": 4.3,
       "image": "images/apple_macbook_pro_13.gif",
       "other_info": {
-        "manufacturer": "Apple,"
+        "manufacturer": "Apple",
         "OS": "macOS",
         "CPU": "Intel Core i5 2.3GHz",
         "screen_size": "2560x1600",
