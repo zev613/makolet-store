@@ -48,7 +48,6 @@ def menu_button_press(button):
 		user_logged_in = False
 		current_user = ""
 		app.hideSubWindow("Inventory")
-		
 
 def buy_button_press(button):
 	item_name = button.split("_Button")[0]
@@ -139,6 +138,12 @@ def press_welcome_button(button):
 	elif button == "Create an Account":
 		print("<DEBUG>: Going to New User Sub Window")
 		app.showSubWindow("New User")
+	elif button == "Quit":
+		if app.yesNoBox("Confirm Exit", "Are you sure you want to exit the application?") == True:
+			print("<DEBUG>: Quitting program")
+			app.stop()
+		else:
+			print("<DEBUG>: Not quitting")
 	else:
 		print("Error!!! Not an Option")
 
@@ -322,7 +327,7 @@ app.stopSubWindow()
 
 """Welcome Main Page Goes Here"""
 app.addLabel("welcome_label", "Welcome to Makolet®!", 0, 0)
-app.addButtons(["Login", "Create an Account"], press_welcome_button)
+app.addButtons(["Login", "Create an Account", "Quit"], press_welcome_button)
 
 """End of Welcome Main Page"""
 app.go()
