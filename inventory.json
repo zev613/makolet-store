@@ -88,6 +88,7 @@
       "rating": 4.3,
       "image": "images/apple_macbook_pro_13.gif",
       "other_info": {
+        "manufacturer": "Apple,"
         "OS": "macOS",
         "CPU": "Intel Core i5 2.3GHz",
         "screen_size": "2560x1600",
@@ -103,6 +104,7 @@
       "rating": 3.6,
       "image": "images/dell_xps_15.gif",
       "other_info": {
+        "manufacturer": "Dell",
         "OS": "Windows 10",
         "CPU": "Intel Core i7-7700HQ",
         "screen_size": 15,
@@ -120,6 +122,7 @@
       "rating": 3.4,
       "image": "images/dell_xps_13.gif",
       "other_info": {
+        "manufacturer": "Dell",
         "OS": "Windows",
         "CPU": "Intel Core i5-6200u",
         "screen_size": 13,
@@ -136,6 +139,7 @@
       "rating": 3.3,
       "image": "images/iphone_8.gif",
       "other_info": {
+        "manufacturer": "Apple",
         "OS": "IOS",
         "screen_size": 4.7,
         "storage": "64GB",
@@ -150,6 +154,7 @@
       "rating": 4.0,
       "image": "images/iphone_7.gif",
       "other_info": {
+        "manufacturer": "Apple",
         "OS": "IOS",
         "screen_size": 4.7,
         "storage": "128GB",
@@ -169,6 +174,7 @@
       "rating": 3.9,
       "image": "images/moto_z_droid.gif",
       "other_info": {
+        "manufacturer": "Moto",
         "OS": "Android",
         "screen_size": 5.5,
         "storage": "32GB",
@@ -187,6 +193,7 @@
       "rating": 4.1,
       "image": "images/google_pixel_xl.gif",
       "other_info": {
+        "manufacturer": "Google",
         "OS": "Android",
         "screen_size": "5.5 inches",
         "storage": "128GB",
@@ -206,6 +213,7 @@
       "rating": 4.8,
       "image": "images/playstation_pro.gif",
       "other_info": {
+        "manufacturer": "Sony",
         "RAM": "8GB",
         "storage_size": "1 TB",
         "dimensions": "Approx. 265×39×288 mm"
@@ -219,6 +227,7 @@
       "rating": 4.5,
       "image": "images/xbox_one_s.gif",
       "other_info": {
+        "manufacturer": "Microsoft",
         "RAM": "8GB",
         "storage_size": "1 TB",
         "dimensions": "11.6x8.9x2.5 inches",

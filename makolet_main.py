@@ -7,6 +7,7 @@ import sys
 import password
 from appJar import gui
 import smtp2
+from datetime import datetime
 
 uppercase_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 lowercase_alpha = "abcdefghijklmnopqrstuvwxtz"
@@ -44,10 +45,50 @@ def menu_button_press(button):
 		
 
 def buy_button_press(button):
-	if button == "Buy Now":
-		print("This will let you buy the item as long as your account has enough of a Balance")
-	# TODO: This will check user's balance, if there is enough money, buys it after being pressed, and takes the user to the Shipping Page, has them confirm the info is correct, then will send a "order confirmation" email using smtp. Then will send them back to Homepage.
+	item_name = button.split("_Button")
+	item_category = ""
+	"""since the button function cant pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
+	for category in inventory:
+		for item in category:
+			if item["name"] == item_name: #if name value is same as the first half of Button name
+				item_category = category
+				print("<DEBUG>: category", category)
+	
+	item_ref_dict = inventory[category][item_name]
+	item_price = item_ref_dict["price"]
+	item_quantity = item_ref_dict["quantity"]
+	user_balance = users[current_user]["account_info"]["balance"]
+	if item_quantity <= 0: #Store doesn't have any in stock
+		print("<DEBUG>: Item Quantity is 0")
+		app.errorBox("quantity_zero", "We do not have any of this item in stock currently. Check back later.", parent="Inventory")
+	elif item_price > user_balance: #User doesn't have enough funds to pay for it
+		print("<DEBUG>: User's balance is not enough to buy item.")
+		app.errorBox("balance_too_low", "You do not have sufficient funds to pay for this item.\nPlease add more funds or select a different item.", parent="Inventory")
+	else:
+		user_balance -= item_price #remove the funds necessary to buy this item from user's balance
+		print("<DEBUG>: subtracted price from balance")
+		item_quantity -= 1 #remove 1 quantity of the item from stock
+		users[current_user]["account_info"]["purchase_history"][item_name] = {} #add empty dictionary with purchase_history, key is item_name
+		if category == "Books":
+			manufacturer = inventory[category][item_name]["other_info"]["publisher"]
+		elif category == "Electronics":
+			manufacturer = inventory[category][item_name]["other_info"]["manufacturer"]
+		elif category == "Movies":
+			manufacturer = inventory[category][item_name]["other_info"]["studio"]
+		elif category == "Music":
+			manufacturer = inventory[category][item_name]["other_info"]["artist"]
+		else:
+			print("<DEBUG>: Category not found??")
+		users[current_user]["account_info"]["purchase_history"]["manufacturer"] = manufacturer
+		users[current_user]["account_info"]["purchase_history"]["department"] = category
+		users[current_user]["account_info"]["purchase_history"]["quantity"] += 1
+		users[current_user]["account_info"]["purchase_history"]["cost"] = item_price
+		users[current_user]["account_info"]["purchase_history"]["date_time_purchased"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+		#TODO: Implement date/time tracking -- records when a user bought an item, and stores that in the purchase_history dictionary.
 
+#Check if user's Balance is enough to buy it.
+	
+	#TODO: This will check user's balance, if there is enough money, buys it after being pressed, and takes the user to the Shipping Page, has them confirm the info is correct, then will send a "order confirmation" email using smtp. Then will send them back to Homepage.
 
 def press_new_user(button):
 	if button == "Create your Account":  # Submit new Acccount

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1595088-7a7e-4839-a004-9d78cacf7e6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inventory.json" afterPath="$PROJECT_DIR$/inventory.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/makolet_main.py" afterPath="$PROJECT_DIR$/makolet_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.json" afterPath="$PROJECT_DIR$/users.json" />
     </list>
@@ -21,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="makolet_main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="makolet_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/makolet_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="257" column="24" lean-forward="false" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+            <state relative-caret-position="29">
+              <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
               <folding>
                 <element signature="e#188#199#0" expanded="true" />
               </folding>
@@ -36,7 +37,7 @@
       <file leaf-file-name="appJarTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/appJarTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
+            <state relative-caret-position="5626">
               <caret line="195" column="163" lean-forward="false" selection-start-line="195" selection-start-column="163" selection-end-line="195" selection-end-column="163" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
@@ -60,7 +61,7 @@
       <file leaf-file-name="appjar.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Python36/Lib/site-packages/appJar/appjar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
+            <state relative-caret-position="122032">
               <caret line="4209" column="8" lean-forward="false" selection-start-line="4209" selection-start-column="8" selection-end-line="4209" selection-end-column="8" />
               <folding />
             </state>
@@ -90,18 +91,18 @@
       <file leaf-file-name="inventory.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inventory.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="-1468">
+              <caret line="229" column="34" lean-forward="false" selection-start-line="229" selection-start-column="34" selection-end-line="229" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="users.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="0" column="1275" lean-forward="true" selection-start-line="0" selection-start-column="1275" selection-end-line="0" selection-end-column="1275" />
+              <caret line="0" column="1265" lean-forward="false" selection-start-line="0" selection-start-column="1265" selection-end-line="0" selection-end-column="1265" />
               <folding />
             </state>
           </provider>
@@ -123,11 +124,13 @@
       <find>inv_cat</find>
       <find>default</find>
       <find>startTogg</find>
+      <find>date_purchased</find>
     </findStrings>
     <replaceStrings>
       <replace>item_acc</replace>
       <replace>app</replace>
       <replace>category</replace>
+      <replace>date_time_purchased</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -141,10 +144,10 @@
         <option value="$PROJECT_DIR$/zseltzer@fandm.edu.json.py" />
         <option value="$PROJECT_DIR$/zseltzer@fandm.edu.json" />
         <option value="$PROJECT_DIR$/inventory_zev_backup.json" />
-        <option value="$PROJECT_DIR$/inventory.json" />
         <option value="$PROJECT_DIR$/user_login.py" />
         <option value="$PROJECT_DIR$/gui_test.py" />
         <option value="$PROJECT_DIR$/appJarTest.py" />
+        <option value="$PROJECT_DIR$/inventory.json" />
         <option value="$PROJECT_DIR$/users.json" />
         <option value="$PROJECT_DIR$/makolet_main.py" />
       </list>
@@ -157,8 +160,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="744" />
-    <option name="y" value="-27" />
+    <option name="x" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -177,7 +179,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,7 +191,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,13 +315,13 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123523094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12674543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28280544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28280544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -698,24 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inventory.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appJarTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="195" column="163" lean-forward="false" selection-start-line="195" selection-start-column="163" selection-end-line="195" selection-end-column="163" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/smtp2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -728,7 +712,7 @@
     </entry>
     <entry file="file://C:/Python36/Lib/site-packages/appJar/appjar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
+        <state relative-caret-position="122032">
           <caret line="4209" column="8" lean-forward="false" selection-start-line="4209" selection-start-column="8" selection-end-line="4209" selection-end-column="8" />
           <folding />
         </state>
@@ -738,25 +722,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="1598" column="0" lean-forward="false" selection-start-line="1598" selection-start-column="0" selection-end-line="1598" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/makolet_main.py">
+    <entry file="file://$PROJECT_DIR$/appJarTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="257" column="24" lean-forward="false" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+        <state relative-caret-position="5626">
+          <caret line="195" column="163" lean-forward="false" selection-start-line="195" selection-start-column="163" selection-end-line="195" selection-end-column="163" />
           <folding>
-            <element signature="e#188#199#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inventory.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1468">
+          <caret line="229" column="34" lean-forward="false" selection-start-line="229" selection-start-column="34" selection-end-line="229" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
-          <caret line="0" column="1275" lean-forward="true" selection-start-line="0" selection-start-column="1275" selection-end-line="0" selection-end-column="1275" />
+          <caret line="0" column="1265" lean-forward="false" selection-start-line="0" selection-start-column="1265" selection-end-line="0" selection-end-column="1265" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/makolet_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+          <folding>
+            <element signature="e#188#199#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
