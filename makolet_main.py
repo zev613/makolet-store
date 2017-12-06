@@ -48,11 +48,11 @@ def menu_button_press(button):
 		app.hideSubWindow("Inventory")
 
 def buy_button_press(button):
-	item_name = button.split("_Button")[0]
+	item_name = button.replace("_Button", "")
 	item_category = ""
-	"""since the button function cant pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
+	"""since the button function can't pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
 	for category in inventory:
-		for item in category:
+		for item in inventory[category]:
 			if inventory[category][item]["name"] == item_name: #if name value is same as the first half of Button name
 				item_category = category
 				print("<LOG>: category", category)
@@ -102,9 +102,20 @@ def press_my_account_menu(button):
 		app.hideSubWindow("My Account")
 	elif button == "Sign Out":
 		print("<LOG>: Logging out.")
-		global user_logged_in, current_user, email, first_name, last_name, password, re_password #define global vars
+		global user_logged_in #define global vars
+		global current_user
+		global email
+		global first_name
+		global last_name
+		global password
+		global re_password
 		user_logged_in = False
-		current_user, email, first_name, last_name, password, re_password = ""
+		current_user = ""
+		email = ""
+		first_name = ""
+		last_name = ""
+		password = ""
+		re_password = ""
 		app.hideSubWindow("My_Account")
 	else:
 		print("<LOG>: Option not found.")
@@ -268,8 +279,8 @@ item_acc = 0  # global
 
 for category in inventory.keys():
 	inv_cat = inventory[category]
-	app.startTab("Tab_" + category)  # Add a new Tab, with category strign as text in tab
-	app.startPagedWindow("Page_" + category)  # begin paged window
+	app.startTab(category)  # Add a new Tab, with category strign as text in tab
+	app.startPagedWindow(category)  # begin paged window
 	if len(inv_cat) % 4 == 0:
 		num_pages = (len(inv_cat) // 4)  # Give num of pages needed to display items in groups of 5 items per page
 		num_left_over_items = 0
