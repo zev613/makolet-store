@@ -4,7 +4,7 @@
 
 import json
 import sys
-import password
+import passwd
 from appJar import gui
 import smtp2
 from datetime import datetime
@@ -14,7 +14,6 @@ lowercase_alpha = "abcdefghijklmnopqrstuvwxtz"
 num_sym = "`1234567890-=[]\;',./~!@#$%^&*()_+{}|:<>?"
 
 users = {}
-
 inventory = {} #Dictionary that represents the entire store's Inventory
 
 global first_name
@@ -27,7 +26,6 @@ global password
 password = "password"
 global re_password
 re_password = "password"
-
 global current_user
 current_user = "jsmith@fandm.edu"
 user_logged_in = False
@@ -57,21 +55,22 @@ def buy_button_press(button):
 		for item in category:
 			if inventory[category][item]["name"] == item_name: #if name value is same as the first half of Button name
 				item_category = category
-				print("<DEBUG>: category", category)
+				print("<LOG>: category", category)
 	
 	item_ref_dict = inventory[category][item_name]
 	item_price = item_ref_dict["price"]
 	item_quantity = item_ref_dict["quantity"]
 	user_balance = users[current_user]["account_info"]["balance"]
 	if item_quantity <= 0: #Store doesn't have any in stock
-		print("<DEBUG>: Item Quantity is 0")
+		print("<LOG>: Item Quantity is 0")
 		app.errorBox("quantity_zero", "We do not have any of this item in stock currently. Check back later.", parent="Inventory")
 	elif item_price > user_balance: #User doesn't have enough funds to pay for it
-		print("<DEBUG>: User's balance is not enough to buy item.")
+		print("<LOG>: User's balance is not enough to buy item.")
 		app.errorBox("balance_too_low", "You do not have sufficient funds to pay for this item.\nPlease add more funds or select a different item.", parent="Inventory")
 	else:
+		"""Follow buys the item, subtracting price from the balance, subtracts 1 from quantity"""
 		user_balance -= item_price #remove the funds necessary to buy this item from user's balance
-		print("<DEBUG>: subtracted price from balance")
+		print("<LOG>: subtracted price from balance")
 		item_quantity -= 1 #remove 1 quantity of the item from stock
 		users[current_user]["account_info"]["purchase_history"][item_name] = {} #add empty dictionary with purchase_history, key is item_name
 		if category == "Books":
@@ -83,7 +82,7 @@ def buy_button_press(button):
 		elif category == "Music":
 			manufacturer = inventory[category][item_name]["other_info"]["artist"]
 		else:
-			print("<DEBUG>: Category not found??")
+			print("<LOG>: Category not found??")
 		users[current_user]["account_info"]["purchase_history"]["manufacturer"] = manufacturer
 		users[current_user]["account_info"]["purchase_history"]["department"] = category
 		users[current_user]["account_info"]["purchase_history"]["quantity"] += 1
@@ -94,6 +93,21 @@ def buy_button_press(button):
 #Check if user's Balance is enough to buy it.
 	
 	#TODO: This will check user's balance, if there is enough money, buys it after being pressed, and takes the user to the Shipping Page, has them confirm the info is correct, then will send a "order confirmation" email using smtp. Then will send them back to Homepage.
+
+def press_my_account_menu(button):
+	"""Controls the menu buttons for the 'My Account' sub-window"""
+	if button == "Back to Store":
+		app.showSubWindow("Inventory")
+		print("<LOG>: Back to Inventory")
+		app.hideSubWindow("My Account")
+	elif button == "Sign Out":
+		print("<LOG>: Logging out.")
+		global user_logged_in, current_user, email, first_name, last_name, password, re_password #define global vars
+		user_logged_in = False
+		current_user, email, first_name, last_name, password, re_password = ""
+		app.hideSubWindow("My_Account")
+	else:
+		print("<LOG>: Option not found.")
 
 def press_new_user(button):
 	if button == "Create your Account":  # Submit new Acccount
@@ -110,19 +124,13 @@ def press_new_user(button):
 			app.errorBox("Passwords Not Matching", "Your password did not match your re-entry! Try again.",
 			             parent="New User")
 		elif len(app.getEntry("Password")) < 6:
-			app.errorBox("Password Too Short",
-			             "Your password does not meet the length requirement. It must be at least 7 characters long.",
-			             parent="New User")
+			app.errorBox("Password Too Short", "Your password does not meet the length requirement. It must be at least 7 characters long.",parent="New User")
 		else:
-			app.infoBox("Created New Account",
-			            "Congratulations on Making a New Account!\nTaking you to the login page. Enter your new credentials there.",
-			            parent="New User")
-			users[app.getEntry("Email Address")] = {"first_name": app.getEntry("First Name"), "last_name": app.getEntry("Last Name"), "password": app.getEntry("Password"),
-			                "address": ['St', 'Apt', 'City', 'State', 'Zip'],
-			                "account_info": {"balance": 0.00, "purchase_history": {}}}
+			app.infoBox("Created New Account", "Congratulations on Making a New Account!\nTaking you to the login page. Enter your new credentials there.", parent="New User")
+			users[app.getEntry("Email Address")] = {"first_name": app.getEntry("First Name"), "last_name": app.getEntry("Last Name"), "password": app.getEntry("Password"), "address": ['St', 'Apt', 'City', 'State', 'Zip'], "account_info": {"balance": 0.00, "purchase_history": {"default_item": ""}}}
 			with open('users.json', 'w') as outfile:
 				json.dump(users, outfile)
-			print("<DEBUG>: Added Account to users dictionary/.json")
+			print("<LOG>: Added Account to users dictionary/.json")
 			app.showSubWindow("User Login")
 			app.hideSubWindow("New User")
 	elif button == "Back":  # Go back to Welcome Page
@@ -133,23 +141,23 @@ def press_new_user(button):
 
 def press_welcome_button(button):
 	if button == "Login":
-		print("<DEBUG>: Going to User Login Sub Window")
+		print("<LOG>: Going to User Login Sub Window")
 		app.showSubWindow("User Login")
 	elif button == "Create an Account":
-		print("<DEBUG>: Going to New User Sub Window")
+		print("<LOG>: Going to New User Sub Window")
 		app.showSubWindow("New User")
 	elif button == "Quit":
 		if app.yesNoBox("Confirm Exit", "Are you sure you want to exit the application?") == True:
-			print("<DEBUG>: Quitting program")
+			print("<LOG>: Quitting program")
 			app.stop()
 		else:
-			print("<DEBUG>: Not quitting")
+			print("<LOG>: Not quitting")
 	else:
 		print("Error!!! Not an Option")
 
 def press_view_terms(button):
 	if button == "View Terms and Conditions":
-		app.infoBox("terms", "You must agree to the follow terms and conditions to use Makolet®", parent = "New User")
+		app.infoBox("terms", "You must agree to the follow terms and conditions to use Makolet®", parent="New User")
 
 def cancel_user_login(button):
 	if button == "Cancel":
@@ -168,21 +176,20 @@ def press_submit_user_login(button):
 			if password == users[email]["password"]:
 				current_user = email
 				logged_in = True
-				app.infoBox("Welcome Back", "Welcome Back, " + users[email]["first_name"] + "!", parent = "User Login")
-				print("<DEBUG>: Taking you to Inventory logged in as your account")
+				app.infoBox("Welcome Back", "Welcome Back, " + users[email]["first_name"] + "!", parent="User Login")
+				print("<LOG>: Taking you to Inventory logged in as your account")
 				app.showSubWindow("Inventory")
 				app.hideSubWindow("User Login")
 			else:
 				print("<DEUBG>: Password incorrect")
-				if app.yesNoBox("Password Incorrect",
-				    "The password you entered is incorrect.\nWould you like us to send you your password by email?", parent = "User Login") == True:
+				if app.yesNoBox("Password Incorrect", "The password you entered is incorrect.\nWould you like us to send you your password by email?", parent="User Login") == True:
 					smtp2.password_recovery(email, users[email]["password"])
 					app.infoBox("recovery_sent", "Your password has been sent to the email " + email + ".", parent="User Login")
 				else:
 					print("<LOG>: Not sending Recovery Email")
 		else:
-			app.errorBox("User Not Found", "The Email you entered does not have an account.", parent = "User Login")
-			if app.yesNoBox("Go to New User Page", "Would you like to go to the Create Account page?", parent = "User Login") == True:
+			app.errorBox("User Not Found", "The Email you entered does not have an account.", parent="User Login")
+			if app.yesNoBox("Go to New User Page", "Would you like to go to the Create Account page?", parent="User Login") == True:
 				app.showSubWindow("New User")
 				app.hideSubWindow("User Login")
 			else:
@@ -191,7 +198,7 @@ def press_submit_user_login(button):
 		print("Going back to Main Page")
 		app.hideSubWindow("User Login")
 	else:
-		print("<DEBUG>: ERROR. INVALID CHOICE")
+		print("<LOG>: ERROR. INVALID CHOICE")
 
 app = gui("Makolet®", "400x500")
 app.setBg("white")
@@ -200,7 +207,7 @@ app.setSticky("news")
 app.setExpand("both")
 app.setFont(14)
 
-# TODO: Add New User SubWindow, called from the Welcome Main Window.
+#TODO: Add New User SubWindow, called from the Welcome Main Window.
 """Begin New User Sub-Window"""
 app.startSubWindow("New User", modal = True)  # blocking=True)
 app.setGeometry("400x500")
@@ -211,23 +218,18 @@ app.startLabelFrame("Enter Account Details")
 app.setFont(14)
 app.addLabelEntry("Email Address")#
 app.setEntryDefault("Email Address", "Enter your Email")
-#new_email = app.getEntry("Email Address")
 app.addLabelEntry("First Name")
 app.setEntryDefault("First Name", "Enter your First Name")
-#new_first_name = app.getEntry("First Name")
 app.addLabelEntry("Last Name")
 app.setEntryDefault("Last Name", "Enter your Last Name")
-#new_last_name = app.getEntry("Last Name")
 app.addSecretLabelEntry("Password")
 app.setEntryDefault("Password", "Enter a password")
-#new_password = app.getEntry("Password")
 app.addLabelValidationEntry("Re-enter Password")
 app.setEntryDefault("Re-enter Password", "Type your Password again")
-#new_re_password = app.getEntry("Re-enter Password")
 # Following button opens a popup, which has the Terms and Conditions
 app.addButton("View Terms and Conditions", press_view_terms)
 app.addCheckBox("I Agree to the Terms")
-# app.addLabelEntry("Address")
+	# app.addLabelEntry("Address")
 app.addButtons(["Create your Account", "Back"], press_new_user)
 app.stopLabelFrame()
 app.stopSubWindow()
@@ -253,15 +255,17 @@ app.stopSubWindow()
 
 """Begin Inventory Sub-Window"""
 app.startSubWindow("Inventory", modal = True)  # blocking=True)
-# menu_options = ["Homepage"] + [category for category in inventory.keys()]
-# app.addMenuList("Makolet®", menu_options, top_menu_press)
 app.addLabel("logo", "Makolet®", 0, 0)
-# app.addLabel("category", category, 0, 1)
-app.addEmptyLabel("blank_1", 0, 2)  # (len(category) - 3))
+#app.addEmptyLabel("blank_1", 0, 2)  # (len(category) - 3))
+app.setStretch("column")
+app.setSticky("new")
 app.addButton("My Account", menu_button_press, 0, 3)  # (len(category) - 2))
 app.addButton("Log Out", menu_button_press, 0, 4)  # (len(category) - 1))
-app.startTabbedFrame("Inventory_Tabs")#, colspan=4)  # Each category has a tab
+app.setSticky("esw")
+app.setStretch("both")
+app.startTabbedFrame("Inventory_Tabs", column=0, colspan=5, rowspan=4)#, colspan=4)  # Each category has a tab
 item_acc = 0  # global
+
 for category in inventory.keys():
 	inv_cat = inventory[category]
 	app.startTab("Tab_" + category)  # Add a new Tab, with category strign as text in tab
@@ -273,7 +277,7 @@ for category in inventory.keys():
 		num_pages = (len(inv_cat) // 4) + 1
 		num_leftover_items = len(inv_cat) % 4
 	category_items = [thing for thing in inv_cat]
-	print('<DEBUG>: len(category_items', len(category_items))
+	print('<LOG>: len(category_items', len(category_items))
 	item_acc = 0
 	for item in inv_cat:
 		# TODO: FIGURE OUT HOW TO MAKE EVERY 5 ITEMS APPEAR ON A NEW PAGE, WITHIN A FOR LOOP
@@ -283,13 +287,11 @@ for category in inventory.keys():
 		app.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 2, item_acc)
 		app.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, item_acc)
 		app.addNamedButton("Buy Now", inv_cat[item]["name"] + "_Button", buy_button_press, 4, item_acc)
-		app.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5,
-		             item_acc)
+		app.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, item_acc)
 		app.startToggleFrame(inv_cat[item]["name"] + "_More_Info", 6, item_acc)
 		app.setToggleFrameText(inv_cat[item]["name"] + "_More_Info", "More Info")
 		this_other_info = ""
-		for info in inv_cat[item][
-			"other_info"].keys():  # creates a string where each piece of information in other_info is printed, with newlines. This will fill the other_info Label.
+		for info in inv_cat[item]["other_info"].keys():  # creates a string where each piece of information in other_info is printed, with newlines. This will fill the other_info Label.
 			this_other_info += str(info) + " : " + str(inv_cat[item]["other_info"][info]) + "\n"
 		app.addLabel(inv_cat[item]["name"] + "_other_info", this_other_info, 6, item_acc)
 		app.stopToggleFrame()
@@ -305,19 +307,24 @@ app.stopSubWindow()
 #TODO: Need to figure out how to use the email variable within this scope
 
 app.startSubWindow("My Account")
+app.setGeometry("400x500")
 app.setSticky("news")
 app.setStretch("both")
+print("current_user:", current_user)
 print("email: ", email)
-app.startLabelFrame("Welcome " + users[current_user]["first_name"] + " " + users[current_user]["first_name"] + "!")
+app.addButtons(['Back to Store', "Sign Out"], press_my_account_menu)
+app.startLabelFrame("Welcome " + users[current_user]["first_name"] + "!", row=1, colspan=4)
+app.addLabel("")
 app.startToggleFrame("purchase_history_frame", 0, 0)
 app.setToggleFrameText("purchase_history_frame", "Items Purchased")
 purchased_items_acc = 0
 user_purchases = users[current_user]["account_info"]["purchase_history"] #make code simpler
+if len(user_purchases) < 1:
+	app.addLabel("no_purchased_items", "No Purchased Items", 1, 0)
 for item in user_purchases.keys():
-	app.addLabel("purchases_label_" + purchased_items_acc + "_title", "Item: ", 1, 0)
-	app.addLabel("purchases_" + item, item, 2, 0)
+	app.addLabel("purchases_label_" + purchased_items_acc + "_title", "Item: ", 2, 0)
+	app.addLabel("purchases_" + item, item, 3, 0)
 	purchased_items_acc += 1
-app.addLabel("")
 
 app.stopToggleFrame()
 app.stopLabelFrame()
@@ -352,7 +359,7 @@ class User():
 		#self.purchase_history = purchase_history
 
 		#The folllowing is the code to create a new password
-		self.password = password.new_password(self.email) #calls new_password, which returns a valid password entered by user
+		self.password = passwd.new_password(self.email) #calls new_password, which returns a valid password entered by user
 
 	def get_first_name(self):
 		return self.first_name
