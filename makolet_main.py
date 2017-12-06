@@ -52,14 +52,12 @@ def buy_button_press(button):
 	item_category = ""
 	"""since the button function can't pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
 	for category in inventory:
-		for item in inventory[category]:
-			if inventory[category][item]["name"] == item_name: #if name value is same as the first half of Button name
-				item_category = category
-				print("<LOG>: category", category)
+		if item_name in inventory[category].keys():
+			item_category = category
+			print("<LOG>: category", category)
 	
-	item_ref_dict = inventory[category][item_name]
-	item_price = item_ref_dict["price"]
-	item_quantity = item_ref_dict["quantity"]
+	item_price = inventory[category][item_name]["price"]
+	item_quantity = inventory[category][item_name]["quantity"]
 	user_balance = users[current_user]["account_info"]["balance"]
 	if item_quantity <= 0: #Store doesn't have any in stock
 		print("<LOG>: Item Quantity is 0")
