@@ -342,7 +342,8 @@ app.stopSubWindow()
 """End My Account Sub-Window"""
 
 """Welcome Main Page Goes Here"""
-app.addLabel("welcome_label", "Welcome to Makolet®!", 0, 0)
+app.addImage("makolet_logo", "images/logo.gif", 0, 0)
+app.addLabel("welcome_label", "Welcome to Makolet®!", 1, 0)
 app.addButtons(["Login", "Create an Account", "Quit"], press_welcome_button)
 
 """End of Welcome Main Page"""
