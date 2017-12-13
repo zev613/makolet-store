@@ -279,12 +279,12 @@ for category in inventory.keys():
 	inv_cat = inventory[category]
 	app.startTab(category)  # Add a new Tab, with category strign as text in tab
 	app.startPagedWindow(category)  # begin paged window
-	if len(inv_cat) % 4 == 0:
-		num_pages = (len(inv_cat) // 4)  # Give num of pages needed to display items in groups of 5 items per page
+	if len(inv_cat) % 5 == 0:
+		num_pages = (len(inv_cat) // 5)  # Give num of pages needed to display items in groups of 5 items per page
 		num_left_over_items = 0
 	else:
-		num_pages = (len(inv_cat) // 4) + 1
-		num_leftover_items = len(inv_cat) % 4
+		num_pages = (len(inv_cat) // 5) + 1
+		num_leftover_items = len(inv_cat) % 5
 	category_items = [thing for thing in inv_cat]
 	print('<LOG>: len(category_items', len(category_items))
 	item_acc = 0
@@ -350,12 +350,8 @@ app.addButtons(["Login", "Create an Account", "Quit"], press_welcome_button)
 app.go()
 
 class User():
-	'''Makes a new user with the specified attributes, then have user create a new password'''
+	"""Makes a new user with the specified attributes, then have user create a new password"""
 	def __init__(self, first_name, last_name, email, address):
-		'''I had to remove the password parameter for the constructor because
-		we have them set their passwords below. Maybe we should make a subclass that refers to a new User, and add
-		And then make this a separate class?'''
-		
 		#Reference Strings to compare for password requirements
 		self.first_name = first_name
 		self.last_name = last_name
