@@ -18,7 +18,7 @@ def password_recovery(user_email, user_password): #email is same as user_name
 
     server = smtplib.SMTP('smtp.gmail.com', 587) #Gmail SMTP server info
     server.starttls()
-    server.login(fromaddr, "MAKOLET_CPS_111") #password for the MakoletCPS111 gmail account.
+    server.login(from_addr, "MAKOLET_CPS_111") #password for the MakoletCPS111 gmail account.
     text = msg.as_string()
     server.sendmail(from_addr, to_addr, text)
     server.quit()

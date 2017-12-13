@@ -42,7 +42,8 @@ def menu_button_press(button):
 		current_user = ""
 		app.hideSubWindow("Inventory")
 
-def buy_button_press(button):
+
+def press_buy_button_press(button):
 	item_name = button.replace("_Button", "")
 	item_category = ""
 	"""since the button function can't pass additional parameters, need to go through whole Inventory until find this item, and record what category it is in."""
@@ -128,7 +129,7 @@ def press_new_user(button):
 			app.errorBox("Passwords Not Matching", "Your password did not match your re-entry! Try again.",
 			             parent="New User")
 		elif len(app.getEntry("Password")) < 6:
-			app.errorBox("Password Too Short", "Your password does not meet the length requirement. It must be at least 7 characters long.",parent="New User")
+			app.errorBox("Password Too Short", "Your password does not meet the length requirement. It must be at least 7 characters long.",    parent="New User")
 		else:
 			app.infoBox("Created New Account", "Congratulations on Making a New Account!\nTaking you to the login page. Enter your new credentials there.", parent="New User")
 			users[app.getEntry("Email Address")] = {"first_name": app.getEntry("First Name"), "last_name": app.getEntry("Last Name"), "password": app.getEntry("Password"), "address": ['St', 'Apt', 'City', 'State', 'Zip'], "account_info": {"balance": 0.00, "purchase_history": {"default_item": ""}}}
@@ -163,7 +164,7 @@ def press_view_terms(button):
 	if button == "View Terms and Conditions":
 		app.infoBox("terms", "You must agree to the follow terms and conditions to use Makolet®", parent="New User")
 
-def cancel_user_login(button):
+def press_cancel_user_login(button):
 	if button == "Cancel":
 		print("Going back to Main Menu")
 		app.hideSubWindow("User Login")
@@ -204,10 +205,15 @@ def press_submit_user_login(button):
 	else:
 		print("<LOG>: ERROR. INVALID CHOICE")
 
+""" This is the start of the actual program. Each function above corresponds to a button. The button calls it when it is pressed.
+"""
+
+"""BEGIN GUI"""
+
 app = gui("Makolet®", "400x500")
-app.setBg("white")
-app.setFg("black")
-app.setSticky("news")
+app.setBg("white")  #sets background to white
+app.setFg("black") #sets background to black
+app.setSticky("news") #set sticky direction, to all four
 app.setExpand("both")
 app.setFont(14)
 
@@ -233,7 +239,6 @@ app.setEntryDefault("Re-enter Password", "Type your Password again")
 # Following button opens a popup, which has the Terms and Conditions
 app.addButton("View Terms and Conditions", press_view_terms)
 app.addCheckBox("I Agree to the Terms")
-	# app.addLabelEntry("Address")
 app.addButtons(["Create your Account", "Back"], press_new_user)
 app.stopLabelFrame()
 app.stopSubWindow()
@@ -252,7 +257,7 @@ app.addLabel("l2", "Password: ", 1, 0)
 app.addSecretEntry("Your Password", 1, 1)
 app.setEntryDefault("Your Password", "Enter your Password")
 app.addButton("Submit", press_submit_user_login, 2, 0, 1)
-app.addButton("Cancel", cancel_user_login, 2, 1, 1)
+app.addButton("Cancel", press_cancel_user_login, 2, 1, 1)
 app.stopLabelFrame()
 app.stopSubWindow()
 """End of User Login Sub-Window"""
@@ -260,7 +265,6 @@ app.stopSubWindow()
 """Begin Inventory Sub-Window"""
 app.startSubWindow("Inventory", modal = True)  # blocking=True)
 app.addLabel("logo", "Makolet®", 0, 0)
-#app.addEmptyLabel("blank_1", 0, 2)  # (len(category) - 3))
 app.setStretch("column")
 app.setSticky("new")
 app.addButton("My Account", menu_button_press, 0, 3)  # (len(category) - 2))
@@ -272,7 +276,7 @@ item_acc = 0  # global
 
 for category in inventory.keys():
 	inv_cat = inventory[category]
-	app.startTab(category)  # Add a new Tab, with category strign as text in tab
+	app.startTab(category)  # Add a new Tab, with category string as text in tab
 	app.startPagedWindow(category)  # begin paged window
 	if len(inv_cat) % 5 == 0:
 		num_pages = (len(inv_cat) // 5)  # Give num of pages needed to display items in groups of 5 items per page
@@ -290,7 +294,7 @@ for category in inventory.keys():
 		app.addImage(item, inv_cat[item]["image"], 1, item_acc)
 		app.addLabel(inv_cat[item]["name"], inv_cat[item]["name"], 2, item_acc)
 		app.addLabel(inv_cat[item]["name"] + "_price", "$" + str(inv_cat[item]["price"]).center(2), 3, item_acc)
-		app.addNamedButton("Buy Now", inv_cat[item]["name"] + "_Button", buy_button_press, 4, item_acc)
+		app.addNamedButton("Buy Now", inv_cat[item]["name"] + "_Button", press_buy_button_press, 4, item_acc)
 		app.addLabel(inv_cat[item]["name"] + "_rating", str(inv_cat[item]["rating"]) + "/5 stars".center(2), 5, item_acc)
 		app.startToggleFrame(inv_cat[item]["name"] + "_More_Info", 6, item_acc)
 		app.setToggleFrameText(inv_cat[item]["name"] + "_More_Info", "More Info")
@@ -333,7 +337,6 @@ for item in user_purchases.keys():
 app.stopToggleFrame()
 app.stopLabelFrame()
 app.stopSubWindow()
-
 """End My Account Sub-Window"""
 
 """Welcome Main Page Goes Here"""
