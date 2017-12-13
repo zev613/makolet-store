@@ -4,20 +4,15 @@
 
 import json
 import sys
-import passwd
 from appJar import gui
 import smtp2
 from datetime import datetime
 
-uppercase_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-lowercase_alpha = "abcdefghijklmnopqrstuvwxtz"
-num_sym = "`1234567890-=[]\;',./~!@#$%^&*()_+{}|:<>?"
-
-users = {}
+users = {} #user dictionary, which gets updated
 inventory = {} #Dictionary that represents the entire store's Inventory
 
 global first_name
-first_name = "John"
+first_name = "John" #
 global last_name
 last_name = "Smith"
 global email
@@ -348,36 +343,3 @@ app.addButtons(["Login", "Create an Account", "Quit"], press_welcome_button)
 
 """End of Welcome Main Page"""
 app.go()
-
-class User():
-	"""Makes a new user with the specified attributes, then have user create a new password"""
-	def __init__(self, first_name, last_name, email, address):
-		#Reference Strings to compare for password requirements
-		self.first_name = first_name
-		self.last_name = last_name
-		valid_email = False #flag var to check for valid email address
-		while valid_email == False: #while email invalid
-			if '@' and '.' not in email: #Email must have a '@' and a '.' in it.
-				email = input("You entered an invalid email address, please type it again.") #if it does not, have re-enter their email address.
-				continue
-		self.email = email #set email to instance var.
-		self.address = address
-		#self.purchase_history = purchase_history
-
-		#The folllowing is the code to create a new password
-		self.password = passwd.new_password(self.email) #calls new_password, which returns a valid password entered by user
-
-	def get_first_name(self):
-		return self.first_name
-
-	def get_last_name(self):
-		return self.last_name
-
-	def get_email(self):
-		return self.email
-
-	def get_password(self):
-		return self.password
-	
-	def get_address(self):
-		return self.address
